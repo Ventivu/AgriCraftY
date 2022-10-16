@@ -36,7 +36,7 @@ public abstract class MethodBase implements IMethod {
                 throw new MethodException(this, "Invalid direction");
             }
             TileEntity tile = world.getTileEntity(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
-            if (tile == null || !(tile instanceof TileEntityCrop)) {
+            if (!(tile instanceof TileEntityCrop)) {
                 throw new MethodException(this, "There is no crop there");
             }
             TileEntityCrop crop = (TileEntityCrop) tile;

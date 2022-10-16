@@ -30,13 +30,18 @@ public class CropPlantBluePower extends CropPlantTallGeneric {
     @Override
     public int transformMeta(int growthStage) {
         switch(growthStage) {
-            case 0:return 0;
-            case 1: return 2;
-            case 2: return 3;
-            case 3: return 5;
-            case 4: return 7;
-            case 5: return 2;
-            case 6: return 3;
+            case 0:
+                return 0;
+            case 1:
+            case 5:
+                return 2;
+            case 2:
+            case 6:
+                return 3;
+            case 3:
+                return 5;
+            case 4:
+                return 7;
         }
         return 8;
     }

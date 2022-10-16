@@ -39,7 +39,7 @@ public class JournalPageTitle extends JournalPage {
 
     @Override
     public ArrayList<ResourceLocation> getTextureMaps() {
-        return new ArrayList<ResourceLocation>();
+        return new ArrayList<>();
     }
 
     @Override

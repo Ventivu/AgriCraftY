@@ -21,7 +21,7 @@ public final class NaturaHelper extends ModHelper {
     @Override
     protected void onInit() {
         try {
-            Class naturaContent = Class.forName("mods.natura.common.NContent");
+            Class<?> naturaContent = Class.forName("mods.natura.common.NContent");
             Item seed = (Item) naturaContent.getField("seeds").get(null);
             OreDictionary.registerOre(Names.OreDict.listAllseed, seed);
         } catch (Exception e) {
@@ -51,7 +51,7 @@ public final class NaturaHelper extends ModHelper {
 
     @Override
     protected List<Item> getTools() {
-        ArrayList<Item> list = new ArrayList<Item>();
+        ArrayList<Item> list = new ArrayList<>();
         list.add((Item) Item.itemRegistry.getObject("Natura:boneBag"));
         return list;
     }

@@ -16,7 +16,7 @@ public class AdventOfAscensionHelper extends ModHelper {
     @Override
     protected void onInit() {
         try {
-            Class registry = Class.forName("net.nevermine.izer.Plantizer");
+            Class<?> registry = Class.forName("net.nevermine.izer.Plantizer");
             for(Field field:registry.getDeclaredFields()) {
                 Object obj = field.get(null);
                 if(!(obj instanceof ItemSeeds)) {
@@ -63,7 +63,7 @@ public class AdventOfAscensionHelper extends ModHelper {
     @Override
     protected void initPlants() {
         try {
-            Class registry = Class.forName("net.nevermine.izer.Plantizer");
+            Class<?> registry = Class.forName("net.nevermine.izer.Plantizer");
             for(Field field:registry.getDeclaredFields()) {
                 Object obj = field.get(null);
                 if(!(obj instanceof ItemSeeds)) {

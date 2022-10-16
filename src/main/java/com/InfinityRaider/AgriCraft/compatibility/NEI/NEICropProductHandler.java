@@ -6,8 +6,8 @@ import codechicken.nei.recipe.TemplateRecipeHandler;
 import com.InfinityRaider.AgriCraft.api.v1.BlockWithMeta;
 import com.InfinityRaider.AgriCraft.api.v1.IGrowthRequirement;
 import com.InfinityRaider.AgriCraft.api.v1.RequirementType;
-import com.InfinityRaider.AgriCraft.farming.cropplant.CropPlant;
 import com.InfinityRaider.AgriCraft.farming.CropPlantHandler;
+import com.InfinityRaider.AgriCraft.farming.cropplant.CropPlant;
 import com.InfinityRaider.AgriCraft.farming.growthrequirement.GrowthRequirementHandler;
 import com.InfinityRaider.AgriCraft.reference.Constants;
 import com.InfinityRaider.AgriCraft.reference.Reference;
@@ -32,14 +32,14 @@ public class NEICropProductHandler extends AgriCraftNEIHandler {
     public class CachedCropProductRecipe extends TemplateRecipeHandler.CachedRecipe {
         PositionedStack seed;
         List<PositionedStack> products;
-        List<PositionedStack> soils = new ArrayList<PositionedStack>();
+        List<PositionedStack> soils = new ArrayList<>();
         PositionedStack requiredBlock;
         RequirementType requiredType;
 
         //constructor
         public CachedCropProductRecipe(ItemStack stack) {
             this.seed = new PositionedStack(stack, Constants.nei_X_parent1, Constants.nei_Y_seeds);
-            this.products = new ArrayList<PositionedStack>();
+            this.products = new ArrayList<>();
             List<ItemStack> drops = CropPlantHandler.getPlantFromStack(stack).getAllFruits();
             if(drops != null) {
                 for (int i = 0; i < drops.size(); i++) {
@@ -68,7 +68,7 @@ public class NEICropProductHandler extends AgriCraftNEIHandler {
         //return ingredients
         @Override
         public List<PositionedStack> getIngredients() {
-            List<PositionedStack> list = new ArrayList<PositionedStack>();
+            List<PositionedStack> list = new ArrayList<>();
             list.add(seed);
             list.add(soils.get(NEICropProductHandler.this.cycleticks / 20 % soils.size()));
             if(requiredBlock!=null) {

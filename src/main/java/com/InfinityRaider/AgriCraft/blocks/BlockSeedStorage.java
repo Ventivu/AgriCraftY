@@ -58,7 +58,7 @@ public class BlockSeedStorage extends BlockCustomWood {
         ArrayList<ItemStack> items = super.getDrops(world, x, y, z, metadata, fortune);
         if(!world.isRemote) {
             TileEntity te = world.getTileEntity(x, y, z);
-            if (te != null && (te instanceof TileEntitySeedStorage)) {
+            if ((te instanceof TileEntitySeedStorage)) {
                 TileEntitySeedStorage storage = (TileEntitySeedStorage) te;
                 for (ItemStack stack : storage.getInventory()) {
                     int total = stack.stackSize;

@@ -53,12 +53,10 @@ public class TransformationMatrix {
     /** Custom transformation */
     public TransformationMatrix(double[][] data) {
         this();
-        int m = SIZE-1>=data.length?data.length:SIZE-1;
+        int m = Math.min(SIZE - 1, data.length);
         for(int i=0;i<m;i++) {
-            int n = SIZE>=data[i].length?data[i].length:SIZE;
-            for(int j=0;j<n;j++) {
-                this.matrix[i][j] = data[i][j];
-            }
+            int n = Math.min(SIZE, data[i].length);
+            System.arraycopy(data[i], 0, this.matrix[i], 0, n);
         }
     }
 

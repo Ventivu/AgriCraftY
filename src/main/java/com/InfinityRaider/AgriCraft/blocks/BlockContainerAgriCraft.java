@@ -64,9 +64,9 @@ public abstract class BlockContainerAgriCraft extends BlockAgriCraft implements 
     @SuppressWarnings("unchecked")
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {
         TileEntity te = world.getTileEntity(x, y, z);
-        if(te!=null && te instanceof TileEntityAgricraft) {
+        if (te instanceof TileEntityAgricraft) {
             TileEntityAgricraft tile = (TileEntityAgricraft) world.getTileEntity(x, y, z);
-            if(tile.isRotatable()) {
+            if (tile.isRotatable()) {
                 int direction = MathHelper.floor_double(entity.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
                 switch (direction) {
                     case 0:

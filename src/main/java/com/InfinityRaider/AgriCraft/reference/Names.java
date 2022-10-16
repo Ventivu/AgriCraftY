@@ -1,3 +1,8 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package com.InfinityRaider.AgriCraft.reference;
 
 public final class Names {
@@ -35,6 +40,9 @@ public final class Names {
         public static final String flag = "ac_Flag";
         public static final String direction = "direction";
         public static final String multiBlock = "agricraft_MultiBlock";
+        public static final String DIMadaptability = "DIMadaptability";
+        public static final String enviromentSafe = "enviromentSafe";
+
     }
 
     //mod objects

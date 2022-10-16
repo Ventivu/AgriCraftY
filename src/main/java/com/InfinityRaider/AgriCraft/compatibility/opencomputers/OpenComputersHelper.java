@@ -16,9 +16,9 @@ public class OpenComputersHelper extends ModHelper {
     @SuppressWarnings("unchecked")
     protected void onPostInit() {
         try {
-            Class driverClass = Class.forName("li.cil.oc.api.Driver");
-            Class blockClass = Class.forName("li.cil.oc.api.driver.Block");
-            Class envClass = Class.forName("com.InfinityRaider.AgriCraft.compatibility.opencomputers.AgriCraftEnvironment");
+            Class<?> driverClass = Class.forName("li.cil.oc.api.Driver");
+            Class<?> blockClass = Class.forName("li.cil.oc.api.driver.Block");
+            Class<?> envClass = Class.forName("com.InfinityRaider.AgriCraft.compatibility.opencomputers.AgriCraftEnvironment");
             Method method = driverClass.getDeclaredMethod("add", blockClass);
             Object environment = envClass.getDeclaredConstructor().newInstance();
             method.invoke(null, environment);

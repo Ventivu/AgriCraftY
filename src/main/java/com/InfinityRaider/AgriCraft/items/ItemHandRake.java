@@ -149,7 +149,7 @@ public class ItemHandRake extends ItemAgricraft implements IRake{
         }
 
         private ItemDropRegistry() {
-            registry = new WeightedRandom<ItemStack>();
+            registry = new WeightedRandom<>();
         }
 
         public static ItemDropRegistry instance() {

@@ -106,7 +106,7 @@ public class EntityAIClearWeeds extends EntityAIBase {
     }
 
     private void findWeeds() {
-        this.weedsToClear = new ArrayList<TileEntityCrop>();
+        this.weedsToClear = new ArrayList<>();
         for (int dx = -range; dx < range; dx++) {
             for (int dy = -range; dy < range; dy++) {
                 for (int dz = -range; dz < range; dz++) {
@@ -114,7 +114,7 @@ public class EntityAIClearWeeds extends EntityAIBase {
                     int y = ((int) villager.posY) + dy;
                     int z = ((int) villager.posZ) + dz;
                     TileEntity te = villager.worldObj.getTileEntity(x, y, z);
-                    if (te != null && te instanceof TileEntityCrop) {
+                    if (te instanceof TileEntityCrop) {
                         TileEntityCrop crop = (TileEntityCrop) te;
                         if (crop.hasWeed()) {
                             weedsToClear.add(crop);

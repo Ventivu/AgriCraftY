@@ -28,7 +28,7 @@ public class CropPlantCreeper extends CropPlantStem {
 
     @Override
     public ArrayList<ItemStack> getAllFruits() {
-        ArrayList<ItemStack> fruits = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> fruits = new ArrayList<>();
         fruits.add(new ItemStack(Items.gunpowder));
         return fruits;
     }

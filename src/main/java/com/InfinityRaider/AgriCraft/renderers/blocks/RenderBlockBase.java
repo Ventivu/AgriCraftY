@@ -27,7 +27,7 @@ import java.util.HashMap;
 
 @SideOnly(Side.CLIENT)
 public abstract class RenderBlockBase extends TileEntitySpecialRenderer implements ISimpleBlockRenderingHandler, IItemRenderer {
-    private static HashMap<Block, Integer> renderIds = new HashMap<Block, Integer>();
+    private static HashMap<Block, Integer> renderIds = new HashMap<>();
     public static final int COLOR_MULTIPLIER_STANDARD = 16777215;
 
     private final Block block;
@@ -51,48 +51,15 @@ public abstract class RenderBlockBase extends TileEntitySpecialRenderer implemen
             ClientRegistry.bindTileEntitySpecialRenderer(te.getClass(), this);
             renderIds.put(block, -1);
         }
-        if(this.shouldBehaveAsISBRH()) {
+        if (this.shouldBehaveAsISBRH()) {
             int id = RenderingRegistry.getNextAvailableRenderId();
             RenderingRegistry.registerBlockHandler(id, this);
             renderIds.put(block, id);
         }
     }
 
-    //WORLD
-    //-----
-    private boolean renderBlock(Tessellator tessellator, IBlockAccess world, double x, double y, double z, Block block, TileEntity tile, float f, int modelId, RenderBlocks renderer, boolean callFromTESR) {
-        if (callFromTESR) {
-            GL11.glPushMatrix();
-            GL11.glTranslated(x, y, z);
-        } else {
-            if(tessellator instanceof TessellatorV2) {
-                ((TessellatorV2) tessellator).setRotation(0, 0, 0, 0);
-            }
-            tessellator.addTranslation((float) x, (float) y, (float) z);
-        }
-        if (tile != null && tile instanceof TileEntityAgricraft) {
-            rotateMatrix((TileEntityAgricraft) tile, tessellator, false);
-        }
-
-        tessellator.setBrightness(block.getMixedBrightnessForBlock(world, (int) x,  (int) y, (int) z));
-        tessellator.setColorRGBA_F(1, 1, 1, 1);
-
-        boolean result = doWorldRender(tessellator, world, x, y, z, tile, block, f, modelId, renderer, callFromTESR);
-
-        if (tile != null && tile instanceof TileEntityAgricraft) {
-            rotateMatrix((TileEntityAgricraft) tile, tessellator, true);
-        }
-        if (callFromTESR) {
-            GL11.glTranslated(-x, -y, -z);
-            GL11.glPopMatrix();
-        } else {
-            if(tessellator instanceof TessellatorV2) {
-                ((TessellatorV2) tessellator).setRotation(0, 0, 0, 0);
-            }
-            tessellator.addTranslation((float) -x, (float) -y, (float) -z);
-        }
-
-        return result;
+    public static int getRenderId(Block block) {
+        return renderIds.getOrDefault(block, -1);
     }
 
     @Override
@@ -153,8 +120,41 @@ public abstract class RenderBlockBase extends TileEntitySpecialRenderer implemen
         return AgriCraft.proxy.getRenderId(this.getBlock());
     }
 
-    public static int getRenderId(Block block) {
-        return renderIds.containsKey(block)?renderIds.get(block):-1;
+    //WORLD
+    //-----
+    private boolean renderBlock(Tessellator tessellator, IBlockAccess world, double x, double y, double z, Block block, TileEntity tile, float f, int modelId, RenderBlocks renderer, boolean callFromTESR) {
+        if (callFromTESR) {
+            GL11.glPushMatrix();
+            GL11.glTranslated(x, y, z);
+        } else {
+            if (tessellator instanceof TessellatorV2) {
+                ((TessellatorV2) tessellator).setRotation(0, 0, 0, 0);
+            }
+            tessellator.addTranslation((float) x, (float) y, (float) z);
+        }
+        if (tile instanceof TileEntityAgricraft) {
+            rotateMatrix((TileEntityAgricraft) tile, tessellator, false);
+        }
+
+        tessellator.setBrightness(block.getMixedBrightnessForBlock(world, (int) x, (int) y, (int) z));
+        tessellator.setColorRGBA_F(1, 1, 1, 1);
+
+        boolean result = doWorldRender(tessellator, world, x, y, z, tile, block, f, modelId, renderer, callFromTESR);
+
+        if (tile instanceof TileEntityAgricraft) {
+            rotateMatrix((TileEntityAgricraft) tile, tessellator, true);
+        }
+        if (callFromTESR) {
+            GL11.glTranslated(-x, -y, -z);
+            GL11.glPopMatrix();
+        } else {
+            if (tessellator instanceof TessellatorV2) {
+                ((TessellatorV2) tessellator).setRotation(0, 0, 0, 0);
+            }
+            tessellator.addTranslation((float) -x, (float) -y, (float) -z);
+        }
+
+        return result;
     }
 
 
@@ -274,7 +274,7 @@ public abstract class RenderBlockBase extends TileEntitySpecialRenderer implemen
      * </p>
      */
     protected void drawScaledPrism(Tessellator tessellator, float minX, float minY, float minZ, float maxX, float maxY, float maxZ, IIcon icon, int colorMultiplier, ForgeDirection direction) {
-        float adj[] = rotatePrism(minX, minY, minZ, maxX, maxY, maxZ, direction);
+        float[] adj = rotatePrism(minX, minY, minZ, maxX, maxY, maxZ, direction);
         drawScaledPrism(tessellator, adj[0], adj[1], adj[2], adj[3], adj[4], adj[5], icon, colorMultiplier);
     }
     
@@ -428,7 +428,7 @@ public abstract class RenderBlockBase extends TileEntitySpecialRenderer implemen
      * TODO: Test up/down rotations more thoroughly.
      */
     public float[] rotatePrism(float minX, float minY, float minZ, float maxX, float maxY, float maxZ, ForgeDirection direction) {
-        float adj[] = new float[6];
+        float[] adj = new float[6];
 
         switch (direction) {
             default:

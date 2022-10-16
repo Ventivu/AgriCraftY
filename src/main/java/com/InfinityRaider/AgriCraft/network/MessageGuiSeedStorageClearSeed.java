@@ -34,10 +34,10 @@ public class MessageGuiSeedStorageClearSeed extends MessageAgriCraft {
         @Override
         public IMessage onMessage(MessageGuiSeedStorageClearSeed message, MessageContext context) {
             Container container = message.player.openContainer;
-            if(container!=null && container instanceof ContainerSeedStorageBase) {
+            if (container instanceof ContainerSeedStorageBase) {
                 ContainerSeedStorageBase storage = (ContainerSeedStorageBase) container;
                 TileEntity tileEntity = storage.getTileEntity();
-                if(tileEntity != null && (tileEntity instanceof ISeedStorageControllable)) {
+                if ((tileEntity instanceof ISeedStorageControllable)) {
                     ((ISeedStorageControllable) tileEntity).clearLockedSeed();
                 }
             }

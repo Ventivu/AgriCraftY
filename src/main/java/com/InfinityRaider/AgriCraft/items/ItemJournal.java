@@ -137,7 +137,7 @@ public class ItemJournal extends ItemAgricraft implements IJournal {
     }
 
     public ArrayList<ItemStack> getDiscoveredSeeds(ItemStack journal) {
-        ArrayList<ItemStack> seeds = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> seeds = new ArrayList<>();
         NBTTagCompound tag = null;
         if (journal != null && journal.stackSize > 0 && journal.getItem() instanceof ItemJournal && journal.hasTagCompound()) {
             tag = journal.getTagCompound();

@@ -86,7 +86,7 @@ public class RenderPeripheral extends RenderBlockBase {
             int timer = peripheral.getTimer(dir);
 
             //doors
-            float doorPosition = (timer >= maxDoorPos ? maxDoorPos : timer) * 4.0F / maxDoorPos;
+            float doorPosition = (Math.min(timer, maxDoorPos)) * 4.0F / maxDoorPos;
             if (doorPosition < 4) {
                 Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.locationBlocksTexture);
                 tessellator.startDrawingQuads();
@@ -96,7 +96,7 @@ public class RenderPeripheral extends RenderBlockBase {
             }
 
             //probe
-            float probePosition = (timer < maxDoorPos ? 0 : timer - maxDoorPos) * 90 / maxDoorPos;
+            float probePosition = (timer < maxDoorPos ? 0 : timer - maxDoorPos) * 90f / maxDoorPos;
             GL11.glRotatef(180, 0, 0, 1);
             float dx = -0.5F;
             float dy = -1.5F;
@@ -122,7 +122,7 @@ public class RenderPeripheral extends RenderBlockBase {
             GL11.glTranslatef(-dx, -dy, -dz);
             GL11.glRotatef(-180, 0, 0, 1);
 
-            //rotate 90° for the next render
+            //rotate 90ï¿½ for the next render
             GL11.glTranslatef(0.5F, 0.5F, 0.5F);
             GL11.glRotatef(-90, 0, 1, 0);
             GL11.glTranslatef(-0.5F, -0.5F, -0.5F);

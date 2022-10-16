@@ -9,8 +9,8 @@ import com.InfinityRaider.AgriCraft.gui.GuiSeedAnalyzer;
 import com.InfinityRaider.AgriCraft.gui.GuiSeedStorage;
 import com.InfinityRaider.AgriCraft.gui.GuiSeedStorageController;
 import com.InfinityRaider.AgriCraft.gui.journal.GuiJournal;
-import com.InfinityRaider.AgriCraft.tileentity.peripheral.TileEntityPeripheral;
 import com.InfinityRaider.AgriCraft.tileentity.TileEntitySeedAnalyzer;
+import com.InfinityRaider.AgriCraft.tileentity.peripheral.TileEntityPeripheral;
 import com.InfinityRaider.AgriCraft.tileentity.storage.TileEntitySeedStorage;
 import com.InfinityRaider.AgriCraft.tileentity.storage.TileEntitySeedStorageController;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -31,20 +31,20 @@ public class GuiHandler implements IGuiHandler{
         TileEntity te = world.getTileEntity(x, y, z);
         switch(ID) {
             case(seedAnalyzerID):
-                if(te != null && te instanceof TileEntitySeedAnalyzer) {
+                if (te instanceof TileEntitySeedAnalyzer) {
                     return new ContainerSeedAnalyzer(player.inventory, (TileEntitySeedAnalyzer) te);
                 }
             case(journalID): break;
             case(seedStorageID):
-                if(te != null && te instanceof TileEntitySeedStorage) {
+                if (te instanceof TileEntitySeedStorage) {
                     return new ContainerSeedStorage(player.inventory, (TileEntitySeedStorage) te);
                 }
             case(seedStorageControllerID):
-                if(te != null && te instanceof TileEntitySeedStorageController) {
+                if (te instanceof TileEntitySeedStorageController) {
                     return new ContainerSeedStorageController(player.inventory, (TileEntitySeedStorageController) te);
                 }
             case(peripheralID):
-                if(te!= null && te instanceof TileEntityPeripheral) {
+                if (te instanceof TileEntityPeripheral) {
                     return new ContainerPeripheral(player.inventory, (TileEntityPeripheral) te);
                 }
         }
@@ -56,22 +56,22 @@ public class GuiHandler implements IGuiHandler{
         TileEntity te = world.getTileEntity(x, y, z);
         switch (ID) {
             case (seedAnalyzerID):
-                if (te != null && te instanceof TileEntitySeedAnalyzer) {
+                if (te instanceof TileEntitySeedAnalyzer) {
                     return new GuiSeedAnalyzer(player.inventory, (TileEntitySeedAnalyzer) te);
                 }
             case (journalID):
                 ItemStack journal = player.getCurrentEquippedItem();
                 return new GuiJournal(journal);
             case (seedStorageID):
-                if (te != null && te instanceof TileEntitySeedStorage) {
+                if (te instanceof TileEntitySeedStorage) {
                     return new GuiSeedStorage(player.inventory, (TileEntitySeedStorage) te);
                 }
             case (seedStorageControllerID):
-                if (te != null && te instanceof TileEntitySeedStorageController) {
+                if (te instanceof TileEntitySeedStorageController) {
                     return new GuiSeedStorageController(player.inventory, (TileEntitySeedStorageController) te);
                 }
             case (peripheralID)   :
-                if(te!= null && te instanceof TileEntityPeripheral) {
+                if (te instanceof TileEntityPeripheral) {
                     return new GuiPeripheral(player.inventory, (TileEntityPeripheral) te);
                 }
             default:

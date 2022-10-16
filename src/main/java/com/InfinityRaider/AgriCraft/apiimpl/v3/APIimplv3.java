@@ -31,7 +31,7 @@ public class APIimplv3 extends APIimplv2 implements APIv3 {
     @Override
     public ICropPlant getCropPlant(World world, int x, int y, int z) {
         TileEntity te = world.getTileEntity(x, y, z);
-        if(te==null || !(te instanceof TileEntityCrop)) {
+        if (!(te instanceof TileEntityCrop)) {
             return null;
         }
         return ((TileEntityCrop) te).getPlant();

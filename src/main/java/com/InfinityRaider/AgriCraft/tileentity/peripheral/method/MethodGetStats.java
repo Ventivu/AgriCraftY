@@ -18,12 +18,12 @@ public class MethodGetStats extends MethodBase {
     }
 
     @Override
-    protected Object[] onMethodCalled(TileEntityCrop crop) throws MethodException {
-        if(!crop.hasPlant() || !crop.isAnalyzed()) {
+    protected Object[] onMethodCalled(TileEntityCrop crop) {
+        if (!crop.hasPlant() || !crop.isAnalyzed()) {
             return null;
         }
         ISeedStats stats = crop.getStats();
-        return new Object[] {stats.getGrowth(), stats.getGain(), stats.getStrength()};
+        return new Object[]{stats.getGrowth(), stats.getGain(), stats.getStrength()};
     }
 
     @Override
@@ -32,12 +32,12 @@ public class MethodGetStats extends MethodBase {
     }
 
     @Override
-    protected Object[] onMethodCalled(TileEntityPeripheral peripheral) throws MethodException {
+    protected Object[] onMethodCalled(TileEntityPeripheral peripheral) {
         ISeedStats stats = PlantStats.getStatsFromStack(peripheral.getSpecimen());
-        if(stats==null) {
+        if (stats == null) {
             return null;
         }
-        return new Object[] {stats.getGrowth(), stats.getGain(), stats.getStrength()};
+        return new Object[]{stats.getGrowth(), stats.getGain(), stats.getStrength()};
     }
 
     @Override
@@ -47,7 +47,7 @@ public class MethodGetStats extends MethodBase {
 
     @Override
     protected ArrayList<MethodParameter> getParameters() {
-        ArrayList<MethodParameter> pars = new ArrayList<MethodParameter>();
+        ArrayList<MethodParameter> pars = new ArrayList<>();
         pars.add(MethodParameter.DIRECTION_OPTIONAL);
         return pars;
     }

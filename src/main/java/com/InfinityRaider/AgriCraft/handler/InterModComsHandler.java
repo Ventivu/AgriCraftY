@@ -1,8 +1,8 @@
 package com.InfinityRaider.AgriCraft.handler;
 
 import com.InfinityRaider.AgriCraft.api.v3.ICropPlant;
-import com.InfinityRaider.AgriCraft.farming.cropplant.CropPlantAPIv1;
 import com.InfinityRaider.AgriCraft.farming.CropPlantHandler;
+import com.InfinityRaider.AgriCraft.farming.cropplant.CropPlantAPIv1;
 import com.InfinityRaider.AgriCraft.renderers.player.renderhooks.RenderPlayerHooks;
 import com.InfinityRaider.AgriCraft.utility.LogHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -19,7 +19,7 @@ public class InterModComsHandler {
         for(FMLInterModComms.IMCMessage message:event.getMessages()) {
             if(message.isItemStackMessage()) {
                 try {
-                    Class cropPlantClass = Class.forName(message.key);
+                    Class<?> cropPlantClass = Class.forName(message.key);
                     if(ICropPlant.class.isAssignableFrom(cropPlantClass)) {
                         ICropPlant cropPlant = null;
                         ItemStack seed = message.getItemStackValue();

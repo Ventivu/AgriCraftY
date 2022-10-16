@@ -51,7 +51,7 @@ public class MessageContainerSeedStorage extends MessageAgriCraft {
         @Override
         public IMessage onMessage(MessageContainerSeedStorage message, MessageContext context) {
             Container container = message.player.openContainer;
-            if(container!=null && container instanceof ContainerSeedStorageBase) {
+            if (container instanceof ContainerSeedStorageBase) {
                 ContainerSeedStorageBase storage = (ContainerSeedStorageBase) container;
                 storage.moveStackFromTileEntityToPlayer(message.slotId, new ItemStack(message.item, message.amount, message.meta));
             }

@@ -38,7 +38,7 @@ public class NEIWeedRakingHandler  extends TemplateRecipeHandler {
         //return ingredients
         @Override
         public List<PositionedStack> getIngredients() {
-            List<PositionedStack> list = new ArrayList<PositionedStack>();
+            List<PositionedStack> list = new ArrayList<>();
             list.add(rake);
             return list;
         }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TileEntitySeedStorageController extends TileEntityCustomWood implements  ISeedStorageController{
-    private ArrayList<ISeedStorageControllable> controllables = new ArrayList<ISeedStorageControllable>();
+    private ArrayList<ISeedStorageControllable> controllables = new ArrayList<>();
     public boolean isControlling;
 
     public TileEntitySeedStorageController() {
@@ -27,7 +27,7 @@ public class TileEntitySeedStorageController extends TileEntityCustomWood implem
 
     @Override
     public List<ItemStack> getControlledSeeds() {
-        ArrayList<ItemStack> stacks = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> stacks = new ArrayList<>();
         for(ISeedStorageControllable controllable:controllables) {
             if(controllable.hasLockedSeed()) {
                 stacks.add(controllable.getLockedSeed());
@@ -55,7 +55,7 @@ public class TileEntitySeedStorageController extends TileEntityCustomWood implem
 
     @Override
     public ArrayList<int[]> getControlledCoordinates() {
-        ArrayList<int[]> coords = new ArrayList<int[]>();
+        ArrayList<int[]> coords = new ArrayList<>();
         for(ISeedStorageControllable controllable:this.controllables) {
             coords.add(controllable.getCoords());
         }

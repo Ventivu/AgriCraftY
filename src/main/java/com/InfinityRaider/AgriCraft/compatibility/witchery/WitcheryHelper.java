@@ -111,7 +111,7 @@ public final class WitcheryHelper extends ModHelper {
     }
 
     protected List<Item> getTools() {
-        ArrayList<Item> tools = new ArrayList<Item>();
+        ArrayList<Item> tools = new ArrayList<>();
         tools.add(sprig);
         return tools;
     }

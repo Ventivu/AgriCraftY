@@ -42,7 +42,7 @@ public class AgriCraftHarvestable implements IFactoryHarvestable {
 
     @Override
     public List<ItemStack> getDrops (World world, Random rand, Map<String, Boolean> harvesterSettings, int x, int y, int z) {
-        ArrayList<ItemStack> items = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> items = new ArrayList<>();
         if (world.getTileEntity(x, y, z) != null && world.getTileEntity(x, y, z) instanceof TileEntityCrop) {
             TileEntityCrop crop = (TileEntityCrop) world.getTileEntity(x, y, z);
             if (crop.hasPlant() && crop.isMature()) {
@@ -59,7 +59,7 @@ public class AgriCraftHarvestable implements IFactoryHarvestable {
     @Override
     public void postHarvest (World world, int x, int y, int z) {
         Block block = world.getBlock(x, y, z);
-        if(block==null || !(block instanceof BlockCrop)) {
+        if (!(block instanceof BlockCrop)) {
             return;
         }
         world.setBlockMetadataWithNotify(x, y, z, 2, 3);

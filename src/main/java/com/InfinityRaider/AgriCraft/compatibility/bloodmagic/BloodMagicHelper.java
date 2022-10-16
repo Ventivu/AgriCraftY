@@ -11,8 +11,8 @@ public class BloodMagicHelper extends ModHelper {
     @SuppressWarnings("unchecked")
     protected void onInit() {
         try {
-            Class harvestRegistry = Class.forName("WayofTime.alchemicalWizardry.api.harvest.HarvestRegistry");
-            Class harvestHandler = Class.forName("WayofTime.alchemicalWizardry.api.harvest.IHarvestHandler");
+            Class<?> harvestRegistry = Class.forName("WayofTime.alchemicalWizardry.api.harvest.HarvestRegistry");
+            Class<?> harvestHandler = Class.forName("WayofTime.alchemicalWizardry.api.harvest.IHarvestHandler");
             Method registerHarvestHandler = harvestRegistry.getMethod("registerHarvestHandler", harvestHandler);
             registerHarvestHandler.invoke(null, new HarvestHandler());
         } catch(Exception e) {

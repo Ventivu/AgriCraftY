@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 @SideOnly(Side.CLIENT)
 public abstract class AgriCraftNEIHandler extends TemplateRecipeHandler {
-    private static HashMap<Class<? extends AgriCraftNEIHandler>, Boolean> handlerStatuses = new HashMap<Class<? extends AgriCraftNEIHandler>, Boolean>();
+    private static HashMap<Class<? extends AgriCraftNEIHandler>, Boolean> handlerStatuses = new HashMap<>();
 
     public AgriCraftNEIHandler() {
         if(!handlerStatuses.containsKey(this.getClass())) {

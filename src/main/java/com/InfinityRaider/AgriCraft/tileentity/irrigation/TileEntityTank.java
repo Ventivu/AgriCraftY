@@ -7,8 +7,10 @@ import com.InfinityRaider.AgriCraft.network.NetworkWrapperAgriCraft;
 import com.InfinityRaider.AgriCraft.reference.Constants;
 import com.InfinityRaider.AgriCraft.reference.Names;
 import com.InfinityRaider.AgriCraft.tileentity.TileEntityCustomWood;
-
-import com.InfinityRaider.AgriCraft.utility.multiblock.*;
+import com.InfinityRaider.AgriCraft.utility.multiblock.IMultiBlockComponent;
+import com.InfinityRaider.AgriCraft.utility.multiblock.IMultiBlockPartData;
+import com.InfinityRaider.AgriCraft.utility.multiblock.MultiBlockManager;
+import com.InfinityRaider.AgriCraft.utility.multiblock.MultiBlockPartData;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.relauncher.Side;
@@ -400,17 +402,17 @@ public class TileEntityTank extends TileEntityCustomWood implements IFluidHandle
         list.add("  - Water level is on layer " + (int) Math.floor((this.getFluidLevel() - 0.1F) / (this.getCapacity() * data.sizeX() * data.sizeZ())) + ".");
         list.add("  - Water height is " + this.getFluidHeight());
         StringBuilder neighbours = new StringBuilder();
-        for(ForgeDirection dir:ForgeDirection.values()) {
-            if(dir==ForgeDirection.UNKNOWN) {
+        for (ForgeDirection dir : ForgeDirection.values()) {
+            if (dir == ForgeDirection.UNKNOWN) {
                 continue;
             }
-            if(this.hasNeighbour(dir)) {
+            if (this.hasNeighbour(dir)) {
                 neighbours.append(dir.name()).append(", ");
             }
         }
-        list.add("  - Neighbours: " + neighbours.toString());
-        list.add("  - MultiBlock data: " + data.toString());
-        list.add("  - MultiBlock Size: "+ data.sizeX()+"x"+ data.sizeY()+"x"+data.sizeZ());
+        list.add("  - Neighbours: " + neighbours);
+        list.add("  - MultiBlock data: " + data);
+        list.add("  - MultiBlock Size: " + data.sizeX() + "x" + data.sizeY() + "x" + data.sizeZ());
     }
 
     @Override

@@ -4,7 +4,7 @@ public enum RenderMethod {
     CROSSED(1),
     HASHTAG(6);
 
-    private int renderId;
+    private final int renderId;
 
     RenderMethod(int renderId) {
         this.renderId = renderId;

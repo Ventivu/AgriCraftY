@@ -23,7 +23,7 @@ public class TinkersConstructHelper extends ModHelper {
 
     @Override
     protected void onPostInit() {
-        shovels = new ArrayList<Item>();
+        shovels = new ArrayList<>();
         shovels.add((Item) Item.itemRegistry.getObject("TConstruct:shovel"));
         shovels.add((Item) Item.itemRegistry.getObject("TConstruct:excavator"));
         shovels.add((Item) Item.itemRegistry.getObject("TConstruct:mattock"));
@@ -80,7 +80,7 @@ public class TinkersConstructHelper extends ModHelper {
 
     @Override
     protected List<Item> getTools() {
-        ArrayList<Item> list = new ArrayList<Item>();
+        ArrayList<Item> list = new ArrayList<>();
         list.add(scythe);
         return list;
     }

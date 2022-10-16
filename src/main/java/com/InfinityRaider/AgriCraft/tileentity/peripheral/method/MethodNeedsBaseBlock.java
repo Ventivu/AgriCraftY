@@ -9,8 +9,8 @@ public class MethodNeedsBaseBlock extends MethodBaseGrowthReq {
     }
 
     @Override
-    protected Object[] onMethodCalled(CropPlant plant) throws MethodException {
-        return new Object[] {plant.getGrowthRequirement().getRequiredType()!= RequirementType.NONE};
+    protected Object[] onMethodCalled(CropPlant plant) {
+        return new Object[]{plant.getGrowthRequirement().getRequiredType() != RequirementType.NONE};
     }
 
     @Override

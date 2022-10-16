@@ -6,7 +6,6 @@ import com.InfinityRaider.AgriCraft.utility.IOHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.item.ItemStack;
@@ -57,7 +56,7 @@ public class GuiJournal extends GuiScreen {
         textComponents = currentPage.getTextComponents();
         textureComponents = currentPage.getTextureComponents();
         itemComponents = currentPage.getItemComponents();
-        iconComponents = new HashMap<ResourceLocation, ArrayList<Component<IIcon>>>();
+        iconComponents = new HashMap<>();
         for(ResourceLocation textureMap:currentPage.getTextureMaps()) {
             if(textureMap == null) {
                 continue;
@@ -171,7 +170,7 @@ public class GuiJournal extends GuiScreen {
             float scale = component.scale();
             int x = this.guiLeft + component.xOffset();
             int y = this.guiTop + component.yOffset();
-            String text[] = IOHelper.getLinesArrayFromData(component.getComponent());
+            String[] text = IOHelper.getLinesArrayFromData(component.getComponent());
             GL11.glScalef(scale, scale, scale);
             for (String paragraph : text) {
                 List<String> split = this.fontRendererObj.listFormattedStringToWidth(paragraph, 200);

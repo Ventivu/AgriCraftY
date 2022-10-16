@@ -6,12 +6,12 @@ import com.InfinityRaider.AgriCraft.api.APIStatus;
 import com.InfinityRaider.AgriCraft.api.v1.*;
 import com.InfinityRaider.AgriCraft.api.v2.IRake;
 import com.InfinityRaider.AgriCraft.api.v2.ISeedStats;
-import com.InfinityRaider.AgriCraft.farming.PlantStats;
-import com.InfinityRaider.AgriCraft.farming.cropplant.CropPlantAPIv1;
-import com.InfinityRaider.AgriCraft.farming.cropplant.CropPlantAgriCraft;
 import com.InfinityRaider.AgriCraft.blocks.BlockCrop;
 import com.InfinityRaider.AgriCraft.blocks.BlockModPlant;
 import com.InfinityRaider.AgriCraft.farming.CropPlantHandler;
+import com.InfinityRaider.AgriCraft.farming.PlantStats;
+import com.InfinityRaider.AgriCraft.farming.cropplant.CropPlantAPIv1;
+import com.InfinityRaider.AgriCraft.farming.cropplant.CropPlantAgriCraft;
 import com.InfinityRaider.AgriCraft.farming.growthrequirement.GrowthRequirementHandler;
 import com.InfinityRaider.AgriCraft.farming.mutation.Mutation;
 import com.InfinityRaider.AgriCraft.farming.mutation.MutationHandler;
@@ -78,7 +78,7 @@ public class APIimplv1 implements APIv1 {
 
 	@Override
 	public List<Block> getCropsBlocks() {
-		return Lists.newArrayList((Block) Blocks.blockCrop);
+		return Lists.newArrayList(Blocks.blockCrop);
 	}
 
 	@Override
@@ -227,7 +227,7 @@ public class APIimplv1 implements APIv1 {
 	@Override
 	public ICropPlant getCropPlant(World world, int x, int y, int z) {
 		TileEntity te = world.getTileEntity(x, y, z);
-		if(te==null || !(te instanceof TileEntityCrop)) {
+		if (!(te instanceof TileEntityCrop)) {
 			return null;
 		}
 		return ((TileEntityCrop) te).getPlant();
@@ -246,7 +246,7 @@ public class APIimplv1 implements APIv1 {
 	@Override
 	public boolean isAnalyzed(World world, int x, int y, int z) {
 		TileEntity te = world.getTileEntity(x, y, z);
-		if(te==null || !(te instanceof TileEntityCrop)) {
+		if (!(te instanceof TileEntityCrop)) {
 			return false;
 		}
 		TileEntityCrop crop = (TileEntityCrop) te;
@@ -256,7 +256,7 @@ public class APIimplv1 implements APIv1 {
 	@Override
 	public ISeedStats getStats(World world, int x, int y, int z) {
 		TileEntity te = world.getTileEntity(x, y, z);
-		if(te==null || !(te instanceof TileEntityCrop)) {
+		if (!(te instanceof TileEntityCrop)) {
 			return new PlantStats(-1, -1, -1);
 		}
 		TileEntityCrop crop = (TileEntityCrop) te;

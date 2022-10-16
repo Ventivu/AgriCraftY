@@ -7,17 +7,25 @@ import net.minecraft.util.IIcon;
 import net.minecraftforge.common.IPlantable;
 
 public interface IAgriCraftSeed extends IPlantable {
-    /** Gets the plant for this seed */
-    public IAgriCraftPlant getPlant();
+    /**
+     * Gets the plant for this seed
+     */
+    IAgriCraftPlant getPlant();
 
-    /** Gets the tier for this seed */
-    public int tier();
+    /**
+     * Gets the tier for this seed
+     */
+    int tier();
 
-    /** Gets the information for the journal for this seed */
+    /**
+     * Gets the information for the journal for this seed
+     */
     @SideOnly(Side.CLIENT)
-    public String getInformation();
+    String getInformation();
 
-    /** Gets the Icon for this seed */
+    /**
+     * Gets the Icon for this seed
+     */
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(ItemStack stack);
+    IIcon getIcon(ItemStack stack);
 }

@@ -44,7 +44,7 @@ public class BlockWaterChannel extends BlockCustomWood {
     @Override
     public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
         TileEntity te = world.getTileEntity(x, y, z);
-        if (te != null && te instanceof TileEntityChannel) {
+        if (te instanceof TileEntityChannel) {
             ((TileEntityChannel) te).findNeighbours();
         }
     }
@@ -68,7 +68,7 @@ public class BlockWaterChannel extends BlockCustomWood {
     public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB mask, List list, Entity entity) {
         //adjacent boxes
         TileEntity te = world.getTileEntity(x, y, z);
-        if (te != null && te instanceof TileEntityChannel) {
+        if (te instanceof TileEntityChannel) {
             TileEntityChannel channel = (TileEntityChannel) te;
             if (channel.hasNeighbourCheck(ForgeDirection.EAST)) {
                 this.setBlockBounds(MAX - Constants.UNIT, MIN, MIN, Constants.UNIT * Constants.WHOLE, MAX, MAX);

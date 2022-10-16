@@ -3,8 +3,8 @@ package com.InfinityRaider.AgriCraft.farming;
 import com.InfinityRaider.AgriCraft.api.v1.IAgriCraftPlant;
 import com.InfinityRaider.AgriCraft.api.v1.IGrowthRequirement;
 import com.InfinityRaider.AgriCraft.api.v1.ItemWithMeta;
-import com.InfinityRaider.AgriCraft.farming.cropplant.*;
 import com.InfinityRaider.AgriCraft.compatibility.ModHelper;
+import com.InfinityRaider.AgriCraft.farming.cropplant.*;
 import com.InfinityRaider.AgriCraft.farming.growthrequirement.GrowthRequirementHandler;
 import com.InfinityRaider.AgriCraft.handler.ConfigurationHandler;
 import com.InfinityRaider.AgriCraft.reference.Constants;
@@ -25,12 +25,18 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.*;
 
 public class CropPlantHandler {
-    /** HashMap containing all plants known to AgriCraft */
-    private static HashMap<Item, HashMap<Integer, CropPlant>> cropPlants = new HashMap<Item, HashMap<Integer, CropPlant>>();
-    /** Queue to store plants registered via the API before the cropPlants HashMap has been initialized */
-    private static ArrayList<CropPlant> plantsToRegister = new ArrayList<CropPlant>();
-    /** Queue to store BlackListed seeds which are not recognized as seeds by agricraft */
-    private static ArrayList<ItemStack> blacklist = new ArrayList<ItemStack>();
+    /**
+     * HashMap containing all plants known to AgriCraft
+     */
+    private static HashMap<Item, HashMap<Integer, CropPlant>> cropPlants = new HashMap<>();
+    /**
+     * Queue to store plants registered via the API before the cropPlants HashMap has been initialized
+     */
+    private static ArrayList<CropPlant> plantsToRegister = new ArrayList<>();
+    /**
+     * Queue to store BlackListed seeds which are not recognized as seeds by agricraft
+     */
+    private static ArrayList<ItemStack> blacklist = new ArrayList<>();
 
     /**
      * Registers the plant into the cropPlants HashMap.
@@ -65,9 +71,8 @@ public class CropPlantHandler {
             else {
                 entryForSeed.put(meta, plant);
             }
-        }
-        else {
-            entryForSeed = new HashMap<Integer, CropPlant>();
+        } else {
+            entryForSeed = new HashMap<>();
             entryForSeed.put(meta, plant);
             cropPlants.put(seed, entryForSeed);
         }
@@ -252,7 +257,7 @@ public class CropPlantHandler {
      * @return the registered plants, taken from the internal HashMap, and placed into an ArrayList.
      */
     public static ArrayList<CropPlant> getPlants() {
-        ArrayList<CropPlant> plants = new ArrayList<CropPlant>();
+        ArrayList<CropPlant> plants = new ArrayList<>();
         for(HashMap<Integer, CropPlant> subMap:cropPlants.values()) {
             for(CropPlant plant : subMap.values()) {
                 if(!plant.isBlackListed()) {
@@ -270,7 +275,7 @@ public class CropPlantHandler {
      * @return the registered plants within the provided range.
      */
     public static ArrayList<CropPlant> getPlantsUpToTier(int tier) {
-        ArrayList<CropPlant> plants = new ArrayList<CropPlant>();
+        ArrayList<CropPlant> plants = new ArrayList<>();
         for(HashMap<Integer, CropPlant> subMap:cropPlants.values()) {
             for(CropPlant plant : subMap.values()) {
                 if(plant.getTier() <= tier && !plant.isBlackListed()) {
@@ -414,13 +419,7 @@ public class CropPlantHandler {
 
     /** Removes a seed from the blacklist array */
     private static void removeFromBlackListArray(ItemStack seed) {
-        Iterator<ItemStack> it = blacklist.iterator();
-        while(it.hasNext()) {
-            ItemStack queued = it.next();
-            if(seed.getItem() == queued.getItem() && seed.getItemDamage() == queued.getItemDamage()) {
-                it.remove();
-            }
-        }
+        blacklist.removeIf(queued -> seed.getItem() == queued.getItem() && seed.getItemDamage() == queued.getItemDamage());
     }
 
     /**
@@ -465,8 +464,8 @@ public class CropPlantHandler {
         for (ItemStack seed : seeds) {
             if (!isValidSeed(seed) && (seed.getItem() instanceof ItemSeeds)) {
             	ArrayList<ItemStack> fruits = OreDictHelper.getFruitsFromOreDict(seed);
-                if (fruits != null && fruits.size() > 0) {
-                	suppressedRegisterPlant(new CropPlantOreDict((ItemSeeds)seed.getItem()));
+                if (fruits.size() > 0) {
+                    suppressedRegisterPlant(new CropPlantOreDict((ItemSeeds)seed.getItem()));
                 }
             }
         }

@@ -14,13 +14,13 @@ public class HarderWildLifeHelper extends ModHelper {
     protected void initPlants() {
         Item seed = (Item) Item.itemRegistry.getObject("HarderWildlife:winterWheatSeeds");
         Item fruit = (Item) Item.itemRegistry.getObject("minecraft:wheat");
-        if(seed != null && seed instanceof ItemSeeds && fruit != null) {
+        if (seed instanceof ItemSeeds && fruit != null) {
             OreDictionary.registerOre("cropWinterWheat", fruit);
             OreDictionary.registerOre("seedWinterWheat", seed);
             CropPlant cropPlant = new CropPlantHarderWildLife((ItemSeeds) seed, "winterWheat");
             try {
                 CropPlantHandler.registerPlant(cropPlant);
-            } catch(Exception e) {
+            } catch (Exception e) {
                 LogHelper.printStackTrace(e);
             }
         }

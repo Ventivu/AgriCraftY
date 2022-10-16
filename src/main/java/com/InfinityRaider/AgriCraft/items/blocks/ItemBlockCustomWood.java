@@ -53,7 +53,7 @@ public class ItemBlockCustomWood extends ItemBlockAgricraft {
      * @param list the list to populate.
      */
     public void getSubItems(List list) {
-        ArrayList<ItemStack> registeredMaterials = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> registeredMaterials = new ArrayList<>();
         ArrayList<ItemStack> planks = OreDictionary.getOres(Names.OreDict.plankWood);
         for(ItemStack plank:planks) {
             if(plank.getItem() instanceof ItemBlock) {
@@ -63,7 +63,7 @@ public class ItemBlockCustomWood extends ItemBlockAgricraft {
                     continue;
 
                 if (plank.getItemDamage() == OreDictionary.WILDCARD_VALUE) {
-                    ArrayList<ItemStack> subItems = new ArrayList<ItemStack>();
+                    ArrayList<ItemStack> subItems = new ArrayList<>();
                     Side side = FMLCommonHandler.instance().getEffectiveSide();
                     if(side==Side.CLIENT) {
                         plank.getItem().getSubItems(plank.getItem(), null, subItems);

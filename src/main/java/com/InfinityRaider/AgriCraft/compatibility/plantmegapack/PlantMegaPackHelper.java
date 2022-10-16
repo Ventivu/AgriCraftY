@@ -37,7 +37,7 @@ public final class PlantMegaPackHelper extends ModHelper {
         if(!seedEnum.isEnum()) {
             return;
         }
-        names = new ArrayList<String>();
+        names = new ArrayList<>();
         Object[] constants = seedEnum.getEnumConstants();
         Field nameField = null;
         for(Field field:seedEnum.getDeclaredFields()) {
@@ -118,7 +118,9 @@ public final class PlantMegaPackHelper extends ModHelper {
         }
         for(String name:names) {
             Item seed = (Item) Item.itemRegistry.getObject(MOD_ID+":seed"+name);
-            if(seed==null || !(seed instanceof ItemSeeds)) {continue;}
+            if (!(seed instanceof ItemSeeds)) {
+                continue;
+            }
             try {
                 if (name.equalsIgnoreCase("Corn") || name.equalsIgnoreCase("Cassava")) {
                     CropPlantHandler.registerPlant(new CropPlantPMPDouble((ItemSeeds) seed));

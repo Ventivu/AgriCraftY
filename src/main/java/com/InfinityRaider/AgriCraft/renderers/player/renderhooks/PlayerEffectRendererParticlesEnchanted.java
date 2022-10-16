@@ -52,7 +52,7 @@ public class PlayerEffectRendererParticlesEnchanted extends PlayerEffectRenderer
     }
 
     ArrayList<String> getDisplayNames() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add("Gideonseymour");
         return list;
     }

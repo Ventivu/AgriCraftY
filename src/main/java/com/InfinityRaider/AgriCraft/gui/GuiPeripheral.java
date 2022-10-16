@@ -1,9 +1,9 @@
 package com.InfinityRaider.AgriCraft.gui;
 
-import com.InfinityRaider.AgriCraft.tileentity.peripheral.method.IMethod;
 import com.InfinityRaider.AgriCraft.container.ContainerPeripheral;
 import com.InfinityRaider.AgriCraft.reference.Reference;
 import com.InfinityRaider.AgriCraft.tileentity.peripheral.TileEntityPeripheral;
+import com.InfinityRaider.AgriCraft.tileentity.peripheral.method.IMethod;
 import com.InfinityRaider.AgriCraft.utility.IOHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -178,14 +178,14 @@ public class GuiPeripheral extends GuiContainer {
     private void scroll(int amount) {
         int newPosition = scrollPosition + amount;
         int max = maxScrollPosition();
-        this.scrollPosition = newPosition<0?0:newPosition>max?max:newPosition;
+        this.scrollPosition = newPosition < 0 ? 0 : Math.min(newPosition, max);
         updateButtons();
     }
 
     private void updateButtons() {
         for(int i=1;i<buttonList.size();i++) {
             Object obj = buttonList.get(i);
-            if(obj==null || !(obj instanceof GuiButton)) {
+            if (!(obj instanceof GuiButton)) {
                 continue;
             }
             GuiButton button = (GuiButton) obj;

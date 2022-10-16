@@ -16,8 +16,8 @@ public class MethodIsAnalyzed extends MethodBase {
     }
 
     @Override
-    protected Object[] onMethodCalled(TileEntityCrop crop) throws MethodException {
-        return new Object[] {crop.isAnalyzed()};
+    protected Object[] onMethodCalled(TileEntityCrop crop) {
+        return new Object[]{crop.isAnalyzed()};
     }
 
     @Override
@@ -26,8 +26,8 @@ public class MethodIsAnalyzed extends MethodBase {
     }
 
     @Override
-    protected Object[] onMethodCalled(TileEntityPeripheral peripheral) throws MethodException {
-        return new Object[] {peripheral.isSpecimenAnalyzed()};
+    protected Object[] onMethodCalled(TileEntityPeripheral peripheral) {
+        return new Object[]{peripheral.isSpecimenAnalyzed()};
     }
 
     @Override
@@ -37,6 +37,6 @@ public class MethodIsAnalyzed extends MethodBase {
 
     @Override
     protected ArrayList<MethodParameter> getParameters() {
-        return new ArrayList<MethodParameter>();
+        return new ArrayList<>();
     }
 }

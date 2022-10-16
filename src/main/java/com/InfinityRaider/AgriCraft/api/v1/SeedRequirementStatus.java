@@ -30,5 +30,5 @@ public enum SeedRequirementStatus {
 	/**
 	 * There's something wrong with the location, not the seed.
 	 */
-	BAD_LOCATION;
+	BAD_LOCATION
 }

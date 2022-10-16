@@ -21,7 +21,6 @@ import java.util.Random;
  * Meaning if you query the ICropPlant object you registered, it will return a different object.
  */
 @Deprecated
-@SuppressWarnings("deprecation")
 public interface ICropPlant extends com.InfinityRaider.AgriCraft.api.v1.ICropPlant {
     /**
      * This method returns the default tier of this plant, tiers can be overridden with the configs.

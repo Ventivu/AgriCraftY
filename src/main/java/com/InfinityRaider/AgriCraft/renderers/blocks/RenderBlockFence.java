@@ -41,7 +41,7 @@ public class RenderBlockFence extends RenderBlockCustomWood<TileEntityFence> {
 
     @Override
     protected boolean doWorldRender(Tessellator tessellator, IBlockAccess world, double x, double y, double z, TileEntity tile, Block block, float f, int modelId, RenderBlocks renderer, boolean callFromTESR) {
-        if(tile==null || !(tile instanceof TileEntityFence)) {
+        if (!(tile instanceof TileEntityFence)) {
             return false;
         }
         TileEntityFence fence = (TileEntityFence) tile;

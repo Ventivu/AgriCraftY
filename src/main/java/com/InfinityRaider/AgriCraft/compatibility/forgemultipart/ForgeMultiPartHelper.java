@@ -2,8 +2,8 @@ package com.InfinityRaider.AgriCraft.compatibility.forgemultipart;
 
 import com.InfinityRaider.AgriCraft.compatibility.ModHelper;
 import com.InfinityRaider.AgriCraft.reference.Names;
-import com.InfinityRaider.AgriCraft.utility.LogHelper;
 import com.InfinityRaider.AgriCraft.utility.LeverHelper;
+import com.InfinityRaider.AgriCraft.utility.LogHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -42,7 +42,7 @@ public class ForgeMultiPartHelper extends ModHelper {
             LogHelper.printStackTrace(e);
         }
         try {
-            Class tileMultiPartClass = Class.forName("codechicken.multipart.TileMultipart");
+            Class<?> tileMultiPartClass = Class.forName("codechicken.multipart.TileMultipart");
             getMultiPartsMethod = tileMultiPartClass.getMethod("jPartList");
         } catch (Exception e) {
             LogHelper.printStackTrace(e);

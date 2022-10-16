@@ -36,7 +36,7 @@ public class ItemMagnifyingGlass extends ItemAgricraft {
     @Override
     public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
         if(world.isRemote) {
-            ArrayList<String> list = new ArrayList<String>();
+            ArrayList<String> list = new ArrayList<>();
             if(world.getBlock(x, y, z)!=null && world.getBlock(x, y, z) instanceof BlockCrop && world.getTileEntity(x, y, z)!=null && world.getTileEntity(x, y, z) instanceof TileEntityCrop) {
                 TileEntityCrop crop = (TileEntityCrop) world.getTileEntity(x, y, z);
                 if(crop.hasPlant()) {

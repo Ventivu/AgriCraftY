@@ -1,6 +1,9 @@
 package com.InfinityRaider.AgriCraft.farming.growthrequirement;
 
-import com.InfinityRaider.AgriCraft.api.v1.*;
+import com.InfinityRaider.AgriCraft.api.v1.BlockWithMeta;
+import com.InfinityRaider.AgriCraft.api.v1.IGrowthRequirement;
+import com.InfinityRaider.AgriCraft.api.v1.ISoilContainer;
+import com.InfinityRaider.AgriCraft.api.v1.RequirementType;
 import com.InfinityRaider.AgriCraft.api.v2.IGrowthRequirementBuilder;
 import com.InfinityRaider.AgriCraft.handler.ConfigurationHandler;
 import com.InfinityRaider.AgriCraft.utility.IOHelper;
@@ -12,7 +15,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Holds all the default soils and soil.
@@ -26,13 +31,13 @@ public class GrowthRequirementHandler {
      * This list contains soils which pose as a default soil, meaning any CropPlant which doesn't require a specific soil will be able to grown on these
      * This list can be modified with MineTweaker
      */
-    public static List<BlockWithMeta> defaultSoils = new ArrayList<BlockWithMeta>();
+    public static List<BlockWithMeta> defaultSoils = new ArrayList<>();
 
     /**
      * This list contains soils needed for certain CropPlants
      * This list cannot be modified externally
      */
-    static List<BlockWithMeta> soils = new ArrayList<BlockWithMeta>();
+    static List<BlockWithMeta> soils = new ArrayList<>();
 
     //Methods for fertile soils
     //-------------------------

@@ -43,7 +43,7 @@ public class PlayerEffectRendererNavi extends PlayerEffectRenderer {
 
     @Override
     ArrayList<String> getDisplayNames() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add("SkeletonPunk");
         return list;
     }
@@ -59,7 +59,7 @@ public class PlayerEffectRendererNavi extends PlayerEffectRenderer {
     }
 
     private double[] getPosition(EntityPlayer player, float partialTick) {
-        double arg = Math.toRadians(360 * (System.currentTimeMillis() & 0x3FFFL) / 0x3FFFL);
+        double arg = Math.toRadians(360f * (System.currentTimeMillis() & 0x3FFFL) / 0x3FFFL);
         double vY = 5;
         double aY = 0.1F;
         double dy = aY*Math.cos((vY*arg)%360);
@@ -83,8 +83,8 @@ public class PlayerEffectRendererNavi extends PlayerEffectRenderer {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         GL11.glEnable(GL11.GL_ALPHA_TEST);
 
-        float arg = (float) Math.toRadians((20*360*(System.currentTimeMillis() & 0x3FFFL) / 0x3FFFL)%360);
-        float sin = (float) (10*Math.sin(arg));
+        float arg = (float) Math.toRadians((20f * 360 * (System.currentTimeMillis() & 0x3FFFL) / 0x3FFFL) % 360);
+        float sin = (float) (10 * Math.sin(arg));
         float scale = 0.5F;
 
         GL11.glRotatef(90, 0, 1, 0);
@@ -145,7 +145,7 @@ public class PlayerEffectRendererNavi extends PlayerEffectRenderer {
             float scale = player.worldObj.rand.nextFloat();
             double radius = 0.3*player.worldObj.rand.nextDouble();
             double angle = Math.toRadians(player.worldObj.rand.nextInt(360));
-            DustFX particle = new DustFX(player.worldObj, player.posX+xNew+radius*Math.cos(angle), player.posY-2*y, +player.posZ+zNew+radius*Math.sin(angle), scale, 0.01F, vector, texture);
+            DustFX particle = new DustFX(player.worldObj, player.posX + xNew + radius * Math.cos(angle), player.posY - 2 * y, player.posZ + zNew + radius * Math.sin(angle), scale, 0.01F, vector, texture);
             Minecraft.getMinecraft().effectRenderer.addEffect(particle);
         }
     }

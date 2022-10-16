@@ -43,7 +43,7 @@ public abstract class CropPlantTallGeneric extends CropPlantTall {
 
     @Override
     public ArrayList<ItemStack> getAllFruits() {
-        return new ArrayList<ItemStack>(fruits);
+        return new ArrayList<>(fruits);
     }
 
     @Override
@@ -58,7 +58,7 @@ public abstract class CropPlantTallGeneric extends CropPlantTall {
     @Override
     public ArrayList<ItemStack> getFruitsOnHarvest(int gain, Random rand) {
         int amount = (int) (Math.ceil((gain + 0.00) / 3));
-        ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> list = new ArrayList<>();
         while(amount>0) {
             list.add(getRandomFruit(rand));
             amount--;

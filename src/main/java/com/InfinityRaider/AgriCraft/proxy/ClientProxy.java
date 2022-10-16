@@ -115,10 +115,10 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void hideItemInNEI(ItemStack stack) {
-        Iterator mods = Loader.instance().getActiveModList().iterator();
+        Iterator<ModContainer> mods = Loader.instance().getActiveModList().iterator();
         ModContainer modContainer;
         while(mods.hasNext()) {
-            modContainer = (ModContainer) mods.next();
+            modContainer = mods.next();
             if(modContainer.getModId().equalsIgnoreCase("NotEnoughItems")) {
                 API.hideItem(stack);
             }

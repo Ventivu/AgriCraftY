@@ -16,7 +16,7 @@ import java.util.HashMap;
 
 @SideOnly(Side.CLIENT)
 public abstract class RenderItemBase implements IItemRenderer {
-    private static HashMap<Item, RenderItemBase> renderers = new HashMap<Item, RenderItemBase>();
+    private static HashMap<Item, RenderItemBase> renderers = new HashMap<>();
 
     protected RenderItemBase(Item item) {
         if(!renderers.containsKey(item)) {

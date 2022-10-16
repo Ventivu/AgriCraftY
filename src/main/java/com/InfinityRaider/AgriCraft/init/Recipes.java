@@ -112,7 +112,7 @@ public class Recipes {
             for (String[] data : Data.modResources) {
                 String oreName = data[0];
                 Item nuggetItem = OreDictHelper.getNuggetForName(oreName);
-                if (nuggetItem != null && nuggetItem instanceof ItemAgricraft) {
+                if (nuggetItem instanceof ItemAgricraft) {
                     ItemStack nugget = new ItemStack(nuggetItem, 9, OreDictHelper.getNuggetMetaForName(oreName));
                     ItemStack ingot = OreDictHelper.getIngot(oreName);
                     if (ingot != null) {
@@ -164,7 +164,7 @@ public class Recipes {
                 if (!(obj instanceof BlockCustomWood)) {
                     continue;
                 }
-                woodList = new ArrayList<ItemStack>();
+                woodList = new ArrayList<>();
                 (((ItemBlockCustomWood) Item.getItemFromBlock((BlockCustomWood) obj))).getSubItems(woodList);
                 return true;
             } catch(Exception e) {
@@ -214,7 +214,7 @@ public class Recipes {
         }
         else if (recipe instanceof ShapelessRecipes) {
             ShapelessRecipes shapelessRecipe = (ShapelessRecipes) recipe;
-            registerCustomWoodRecipe(((ItemBlock) shapelessRecipe.getRecipeOutput().getItem()).field_150939_a, shapelessRecipe.getRecipeOutput().stackSize, false, shapelessRecipe.recipeItems.toArray(new ItemStack[shapelessRecipe.recipeItems.size()]));
+            registerCustomWoodRecipe(((ItemBlock) shapelessRecipe.getRecipeOutput().getItem()).field_150939_a, shapelessRecipe.getRecipeOutput().stackSize, false, shapelessRecipe.recipeItems.toArray(new ItemStack[0]));
         }
     }
 

@@ -17,7 +17,7 @@ public class PlayerEffectRendererEntityDragon extends PlayerEffectRendererEntity
 
     @Override
     ArrayList<String> getDisplayNames() {
-        ArrayList<String> names = new ArrayList<String>();
+        ArrayList<String> names = new ArrayList<>();
         names.add("GreatOrator");
         return names;
     }
@@ -59,7 +59,7 @@ public class PlayerEffectRendererEntityDragon extends PlayerEffectRendererEntity
 
         @Override
         public void performAnimationUpdates() {
-            double test = 10*(360 * (System.currentTimeMillis() & 0x3FFFL) / 0x3FFFL);
+            double test = 10 * (360f * (System.currentTimeMillis() & 0x3FFFL) / 0x3FFFL);
             this.prevAnimTime = this.animTime;
             this.animTime = (float) (test/360);
         }

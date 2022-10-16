@@ -3,7 +3,6 @@ package com.InfinityRaider.AgriCraft.farming.mutation;
 
 import com.InfinityRaider.AgriCraft.api.v3.ICrop;
 import com.InfinityRaider.AgriCraft.api.v3.IMutationEngine;
-import com.InfinityRaider.AgriCraft.farming.mutation.statcalculator.StatCalculator;
 import net.minecraft.item.Item;
 
 import java.util.List;

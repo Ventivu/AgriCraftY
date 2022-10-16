@@ -4,7 +4,6 @@ import com.InfinityRaider.AgriCraft.creativetab.AgriCraftTab;
 import com.InfinityRaider.AgriCraft.items.blocks.ItemBlockCustomWood;
 import com.InfinityRaider.AgriCraft.tileentity.TileEntityAgricraft;
 import com.InfinityRaider.AgriCraft.tileentity.TileEntityCustomWood;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -76,7 +75,7 @@ public abstract class BlockCustomWood extends BlockContainerAgriCraft {
 
     @Override
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune) {
-        ArrayList<ItemStack> drops = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> drops = new ArrayList<>();
         if(!world.isRemote) {
             ItemStack drop = new ItemStack(this, 1);
             this.setTag(world, x, y, z, drop);
@@ -134,12 +133,12 @@ public abstract class BlockCustomWood extends BlockContainerAgriCraft {
     
     @Override
     public ItemStack getWailaStack(BlockAgriCraft block, TileEntityAgricraft te) {
-    	if(te != null && te instanceof TileEntityCustomWood) {
-    		ItemStack stack = new ItemStack(block, 1, 0);
-    		stack.setTagCompound(((TileEntityCustomWood) te).getMaterialTag());
-    		return stack;
-    	} else {
-    		return null;
-    	}
+        if (te instanceof TileEntityCustomWood) {
+            ItemStack stack = new ItemStack(block, 1, 0);
+            stack.setTagCompound(((TileEntityCustomWood) te).getMaterialTag());
+            return stack;
+        } else {
+            return null;
+        }
     }
 }

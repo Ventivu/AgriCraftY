@@ -78,7 +78,7 @@ public class TileEntitySprinkler extends TileEntityAgricraft {
                 for (int yOffset = 1; yOffset < 6; yOffset++) {
                     for (int xOffset = -3; xOffset <= 3; xOffset++) {
                         for (int zOffset = -3; zOffset <= 3; zOffset++) {
-                            this.irrigate(this.xCoord + xOffset, this.yCoord - yOffset, this.zCoord + zOffset, yOffset>=5);
+                            this.irrigate(this.xCoord + xOffset, this.yCoord - yOffset, this.zCoord + zOffset, yOffset == 5);
                         }
                     }
                 }

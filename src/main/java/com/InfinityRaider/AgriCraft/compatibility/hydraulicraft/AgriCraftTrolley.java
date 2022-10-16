@@ -34,7 +34,7 @@ public class AgriCraftTrolley implements IHarvesterTrolley, IHarvesterCustomHarv
     @Override
     public boolean canHarvest(World world, int x, int y, int z) {
         TileEntity te = world.getTileEntity(x, y, z);
-        return te != null && te instanceof ICrop && ((ICrop) te).isMature();
+        return te instanceof ICrop && ((ICrop) te).isMature();
     }
 
     @Override
@@ -43,7 +43,7 @@ public class AgriCraftTrolley implements IHarvesterTrolley, IHarvesterCustomHarv
             return false;
         }
         TileEntity te = world.getTileEntity(x, y, z);
-        if(te == null || !(te instanceof ICrop) ) {
+        if (!(te instanceof ICrop)) {
             return false;
         }
         ICrop crop = (ICrop) te;
@@ -52,7 +52,7 @@ public class AgriCraftTrolley implements IHarvesterTrolley, IHarvesterCustomHarv
 
     @Override
     public ArrayList<ItemStack> getHandlingSeeds() {
-        ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> list = new ArrayList<>();
         for(CropPlant plant : CropPlantHandler.getPlants()) {
             list.add(plant.getSeed());
         }
@@ -73,7 +73,7 @@ public class AgriCraftTrolley implements IHarvesterTrolley, IHarvesterCustomHarv
     @Override
     public int getPlantHeight(World world, int x, int y, int z) {
         TileEntity te = world.getTileEntity(x, y, z);
-        if(te == null || !(te instanceof ICrop) ) {
+        if (!(te instanceof ICrop)) {
             return 1;
         }
         ICrop crop = (ICrop) te;
@@ -86,8 +86,8 @@ public class AgriCraftTrolley implements IHarvesterTrolley, IHarvesterCustomHarv
     @Override
     public ArrayList<ItemStack> doHarvest(World world, int x, int y, int z) {
         TileEntity te = world.getTileEntity(x, y, z);
-        if(te == null || !(te instanceof TileEntityCrop) ) {
-            return new ArrayList<ItemStack>();
+        if (!(te instanceof TileEntityCrop)) {
+            return new ArrayList<>();
         }
         TileEntityCrop crop = (TileEntityCrop) te;
         crop.getWorldObj().setBlockMetadataWithNotify(crop.xCoord, crop.yCoord, crop.zCoord, 2, 2);
@@ -100,7 +100,7 @@ public class AgriCraftTrolley implements IHarvesterTrolley, IHarvesterCustomHarv
             return;
         }
         TileEntity te = world.getTileEntity(x, y, z);
-        if(te == null || !(te instanceof TileEntityCrop) ) {
+        if (!(te instanceof TileEntityCrop)) {
             return;
         }
         TileEntityCrop crop = (TileEntityCrop) te;

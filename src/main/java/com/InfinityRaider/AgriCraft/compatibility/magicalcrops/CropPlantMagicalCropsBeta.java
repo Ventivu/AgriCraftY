@@ -57,7 +57,7 @@ public class CropPlantMagicalCropsBeta extends CropPlantGeneric {
     private void getDrop() {
         Block plant = getPlant();
         try {
-            Class clazz = plant.getClass();
+            Class<? extends Block> clazz = plant.getClass();
             Method[] methods = clazz.getDeclaredMethods();
             for (Method method : methods) {
                 String name = method.getName();
@@ -97,7 +97,7 @@ public class CropPlantMagicalCropsBeta extends CropPlantGeneric {
 
     @Override
     public ArrayList<ItemStack> getAllFruits() {
-        ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> list = new ArrayList<>();
         list.add(new ItemStack(drop, 1, meta));
         return list;
     }

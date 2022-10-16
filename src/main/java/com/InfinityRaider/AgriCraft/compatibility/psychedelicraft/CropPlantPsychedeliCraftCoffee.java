@@ -12,7 +12,7 @@ public class CropPlantPsychedeliCraftCoffee extends CropPlantPsychedeliCraft {
 
     @Override
     public int transformMeta(int growthStage) {
-        return growthStage<0?0:growthStage>7?7:growthStage;
+        return growthStage < 0 ? 0 : Math.min(growthStage, 7);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.InfinityRaider.AgriCraft;
 
+import com.InfinityRaider.AgriCraft.CleanRoom.CustomCleanRoomCrops;
 import com.InfinityRaider.AgriCraft.apiimpl.APISelector;
 import com.InfinityRaider.AgriCraft.compatibility.ModHelper;
 import com.InfinityRaider.AgriCraft.compatibility.NEI.NEIHelper;
@@ -47,7 +48,7 @@ import java.util.ArrayList;
  * </p>
  * @author InfinityRaider
  */
-@Mod(modid = Reference.MOD_ID,name = Reference.MOD_NAME,version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = "0.1.5", guiFactory = Reference.GUI_FACTORY_CLASS)
 public class AgriCraft {
     @Mod.Instance(Reference.MOD_ID)
     public static AgriCraft instance;
@@ -90,6 +91,7 @@ public class AgriCraft {
         //Have to do this in postInit because some mods don't register their items/blocks until init
         ResourceCrops.init();
         CustomCrops.init();
+        CustomCleanRoomCrops.init();
         Recipes.init();
         GrowthRequirementHandler.init();
         CropPlantHandler.init();
@@ -115,7 +117,7 @@ public class AgriCraft {
     @Mod.EventHandler
     @SuppressWarnings("unused")
     public void onMissingMappings(FMLMissingMappingsEvent event) {
-        ArrayList<String> removedIds = new ArrayList<String>();
+        ArrayList<String> removedIds = new ArrayList<>();
         removedIds.add("AgriCraft:cropMelon");
         removedIds.add("AgriCraft:cropPumpkin");
         removedIds.add("AgriCraft:sprinklerItem");

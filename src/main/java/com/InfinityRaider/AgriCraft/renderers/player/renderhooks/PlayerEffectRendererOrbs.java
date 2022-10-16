@@ -33,7 +33,7 @@ public class PlayerEffectRendererOrbs extends PlayerEffectRenderer {
 
     @Override
     ArrayList<String> getDisplayNames() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add(Reference.AUTHOR);
         return list;
     }

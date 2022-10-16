@@ -4,7 +4,6 @@ import com.InfinityRaider.AgriCraft.api.v1.IDebuggable;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -42,7 +41,7 @@ public abstract class DebugHelper {
      */
     private static List<String> getDebugData(World world, int x, int y, int z) {
     	
-    	List<String> debugData = new ArrayList<String>();
+    	List<String> debugData = new ArrayList<>();
     	
         if (!world.isRemote) {
             debugData.add("Server debug info:");
@@ -53,13 +52,12 @@ public abstract class DebugHelper {
         }
         
         TileEntity tile = world.getTileEntity(x, y, z);
-        
-        if(tile!=null && tile instanceof IDebuggable) {
+
+        if (tile instanceof IDebuggable) {
             ((IDebuggable) tile).addDebugInfo(debugData);
-        }
-        else {
-            debugData.add("Block: "+ Block.blockRegistry.getNameForObject(world.getBlock(x, y, z)));
-            debugData.add("Meta: "+world.getBlockMetadata(x, y, z));
+        } else {
+            debugData.add("Block: " + Block.blockRegistry.getNameForObject(world.getBlock(x, y, z)));
+            debugData.add("Meta: " + world.getBlockMetadata(x, y, z));
         }
         
         debugData.add(" ");

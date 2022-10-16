@@ -102,7 +102,7 @@ public class PlayerInteractEventHandler {
                         event.entityPlayer.getCurrentEquippedItem().damageItem(1, event.entityPlayer);
                         event.setResult(Event.Result.ALLOW);
                     }
-                    event.world.playSoundEffect((double) ((float) event.x + 0.5F), (double) ((float) event.y + 0.5F), (double) ((float) event.z + 0.5F), block.stepSound.getStepResourcePath(), (block.stepSound.getVolume() + 1.0F) / 2.0F, block.stepSound.getPitch() * 0.8F);
+                    event.world.playSoundEffect((float) event.x + 0.5F, (float) event.y + 0.5F, (float) event.z + 0.5F, block.stepSound.getStepResourcePath(), (block.stepSound.getVolume() + 1.0F) / 2.0F, block.stepSound.getPitch() * 0.8F);
                     denyEvent(event, false);
                 }
             }
@@ -141,9 +141,9 @@ public class PlayerInteractEventHandler {
         ItemStack heldItem = event.entityPlayer.getHeldItem();
         if(heldItem!=null && heldItem.getItem()==net.minecraft.init.Items.dye && heldItem.getItemDamage()==15) {
             TileEntity te = event.world.getTileEntity(event.x, event.y, event.z);
-            if(te!=null && (te instanceof TileEntityCrop)) {
+            if ((te instanceof TileEntityCrop)) {
                 TileEntityCrop crop = (TileEntityCrop) te;
-                if(!crop.canBonemeal()) {
+                if (!crop.canBonemeal()) {
                     this.denyEvent(event, false);
                 }
             }

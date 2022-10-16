@@ -18,8 +18,8 @@ import net.minecraft.item.ItemStack;
 import java.util.ArrayList;
 
 public class ThaumcraftHelper extends ModHelper {
-    public static ArrayList<BlockModPlant> thaumcraftCrops = new ArrayList<BlockModPlant>();
-    public static ArrayList<ItemModSeed> thaumcraftSeeds = new ArrayList<ItemModSeed>();
+    public static ArrayList<BlockModPlant> thaumcraftCrops = new ArrayList<>();
+    public static ArrayList<ItemModSeed> thaumcraftSeeds = new ArrayList<>();
 
     @Override
     protected void onInit() {

@@ -66,7 +66,7 @@ public final class RenderPlayerHooks {
 
     private void registerPlayerEffectRenderer(PlayerEffectRenderer renderer) {
         if(activeEffectRenderers == null) {
-            activeEffectRenderers = new HashMap<String, PlayerEffectRenderer>();
+            activeEffectRenderers = new HashMap<>();
         }
         for(String name:renderer.getDisplayNames()) {
             this.activeEffectRenderers.put(name, renderer);

@@ -37,7 +37,7 @@ public abstract class TileEntityAgricraft extends TileEntity {
         }
         if(this.isMultiBlock()) {
             NBTTagCompound multiBlockTag = new NBTTagCompound();
-            ((IMultiBlockComponent) this).getMultiBlockData().writeToNBT(multiBlockTag);
+            ((IMultiBlockComponent<?, ?>) this).getMultiBlockData().writeToNBT(multiBlockTag);
             tag.setTag(Names.NBT.multiBlock, multiBlockTag);
         }
     }
@@ -56,7 +56,7 @@ public abstract class TileEntityAgricraft extends TileEntity {
         if(this.isMultiBlock()) {
             if(tag.hasKey(Names.NBT.multiBlock)) {
                 NBTTagCompound multiBlockTag = tag.getCompoundTag(Names.NBT.multiBlock);
-                ((IMultiBlockComponent) this).getMultiBlockData().readFromNBT(multiBlockTag);
+                ((IMultiBlockComponent<?, ?>) this).getMultiBlockData().readFromNBT(multiBlockTag);
             }
         }
     }

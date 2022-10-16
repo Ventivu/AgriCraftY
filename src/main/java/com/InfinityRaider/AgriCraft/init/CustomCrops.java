@@ -93,9 +93,7 @@ public class CustomCrops {
                 Field fieldSeedList = (ForgeHooks.class).getDeclaredField("seedList");
                 fieldSeedList.setAccessible(true);
                 seedList = (List) fieldSeedList.get(null);
-            } catch (NoSuchFieldException e) {
-                error = true;
-            } catch (IllegalAccessException e) {
+            } catch (NoSuchFieldException | IllegalAccessException e) {
                 error = true;
             }
             if(error) {

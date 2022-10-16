@@ -38,12 +38,12 @@ public class ItemCrop extends ItemAgricraft {
                 int use = 1;
                 if(player.isSneaking() && (player.capabilities.isCreativeMode || stack.stackSize>=2)) {
                     TileEntity tile = world.getTileEntity(x, y+1, z);
-                    if(tile != null && (tile instanceof TileEntityCrop)) {
+                    if ((tile instanceof TileEntityCrop)) {
                         ((TileEntityCrop) tile).setCrossCrop(true);
                         use = 2;
                     }
                 }
-                world.playSoundEffect((double)((float) x + 0.5F), (double)((float) y + 0.5F), (double)((float) z + 0.5F), net.minecraft.init.Blocks.leaves.stepSound.func_150496_b(), (net.minecraft.init.Blocks.leaves.stepSound.getVolume() + 1.0F) / 2.0F, net.minecraft.init.Blocks.leaves.stepSound.getPitch() * 0.8F);
+                world.playSoundEffect((float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, net.minecraft.init.Blocks.leaves.stepSound.func_150496_b(), (net.minecraft.init.Blocks.leaves.stepSound.getVolume() + 1.0F) / 2.0F, net.minecraft.init.Blocks.leaves.stepSound.getPitch() * 0.8F);
                 stack.stackSize = player.capabilities.isCreativeMode ? stack.stackSize : stack.stackSize - use;
                 return false;
             }

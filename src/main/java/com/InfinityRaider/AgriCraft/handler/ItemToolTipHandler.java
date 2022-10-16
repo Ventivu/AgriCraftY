@@ -1,8 +1,11 @@
 package com.InfinityRaider.AgriCraft.handler;
 
-import com.InfinityRaider.AgriCraft.api.v2.ITrowel;
+import com.InfinityRaider.AgriCraft.CleanRoom.CleanRoomHelper;
+import com.InfinityRaider.AgriCraft.CleanRoom.CropPlantCleanRoom;
 import com.InfinityRaider.AgriCraft.api.v2.IClipper;
+import com.InfinityRaider.AgriCraft.api.v2.ITrowel;
 import com.InfinityRaider.AgriCraft.farming.CropPlantHandler;
+import com.InfinityRaider.AgriCraft.farming.cropplant.CropPlant;
 import com.InfinityRaider.AgriCraft.items.ItemClipping;
 import com.InfinityRaider.AgriCraft.reference.Names;
 import com.InfinityRaider.AgriCraft.utility.statstringdisplayer.StatStringDisplayer;
@@ -18,55 +21,66 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 @SideOnly(Side.CLIENT)
 @SuppressWarnings("unused")
 public class ItemToolTipHandler {
-    /** Adds tooltips for seed stats */
+    /**
+     * Adds tooltips for seed stats
+     */
     @SubscribeEvent
     public void addSeedStatsTooltip(ItemTooltipEvent event) {
         ItemStack stack = event.itemStack;
-        if(stack==null || stack.getItem()==null) {
+        if (stack == null || stack.getItem() == null) {
             return;
         }
-        if(stack.getItem() instanceof ItemClipping) {
-            if(!stack.hasTagCompound()) {
+        if (stack.getItem() instanceof ItemClipping) {
+            if (!stack.hasTagCompound()) {
                 return;
             }
             stack = ItemStack.loadItemStackFromNBT(stack.getTagCompound());
         }
-        if(stack==null || stack.getItem()==null) {
+        if (stack == null || stack.getItem() == null) {
             return;
         }
-        if(CropPlantHandler.isValidSeed(stack) && stack.hasTagCompound()) {
+        if (CropPlantHandler.isValidSeed(stack) && stack.hasTagCompound()) {
             NBTTagCompound tag = stack.getTagCompound();
-            if(tag.hasKey(Names.NBT.growth) && tag.hasKey(Names.NBT.gain) && tag.hasKey(Names.NBT.strength) && tag.hasKey(Names.NBT.analyzed)) {
-                if(tag.getBoolean(Names.NBT.analyzed)) {
-                    event.toolTip.add(EnumChatFormatting.GREEN + " - "+StatCollector.translateToLocal("agricraft_tooltip.growth") + ": " + StatStringDisplayer.instance().getStatDisplayString(tag.getInteger(Names.NBT.growth), ConfigurationHandler.cropStatCap));
-                    event.toolTip.add(EnumChatFormatting.GREEN + " - "+StatCollector.translateToLocal("agricraft_tooltip.gain") + ": " + StatStringDisplayer.instance().getStatDisplayString(tag.getInteger(Names.NBT.gain), ConfigurationHandler.cropStatCap));
-                    event.toolTip.add(EnumChatFormatting.GREEN + " - "+StatCollector.translateToLocal("agricraft_tooltip.strength") + ": " + StatStringDisplayer.instance().getStatDisplayString(tag.getInteger(Names.NBT.strength), ConfigurationHandler.cropStatCap));
-                }
-                else {
-                    event.toolTip.add(" "+ StatCollector.translateToLocal("agricraft_tooltip.unidentified"));
+            if (tag.hasKey(Names.NBT.growth) && tag.hasKey(Names.NBT.gain) && tag.hasKey(Names.NBT.strength) && tag.hasKey(Names.NBT.analyzed)) {
+                if (tag.getBoolean(Names.NBT.analyzed)) {
+                    event.toolTip.add(EnumChatFormatting.GREEN + " - " + StatCollector.translateToLocal("agricraft_tooltip.growth") + ": " + StatStringDisplayer.instance().getStatDisplayString(tag.getInteger(Names.NBT.growth), ConfigurationHandler.cropStatCap));
+                    event.toolTip.add(EnumChatFormatting.GREEN + " - " + StatCollector.translateToLocal("agricraft_tooltip.gain") + ": " + StatStringDisplayer.instance().getStatDisplayString(tag.getInteger(Names.NBT.gain), ConfigurationHandler.cropStatCap));
+                    event.toolTip.add(EnumChatFormatting.GREEN + " - " + StatCollector.translateToLocal("agricraft_tooltip.strength") + ": " + StatStringDisplayer.instance().getStatDisplayString(tag.getInteger(Names.NBT.strength), ConfigurationHandler.cropStatCap));
+                    if (ConfigurationHandler.enableBetaSys && stack.stackTagCompound.hasKey("DIMadaptability")) {
+                        CropPlant plant = CropPlantHandler.getPlantFromStack(stack);
+                        if (plant instanceof CropPlantCleanRoom) {
+                            String display = ((CropPlantCleanRoom) plant).getDIMadaptability() > stack.stackTagCompound.getInteger("DIMadaptability") ? (CleanRoomHelper.checkValidateDim((CropPlantCleanRoom) plant, event.entityPlayer.worldObj.provider.dimensionId) ? "agricraft_tooltip.Grow" : "agricraft_tooltip.GrowNG") : "agricraft_tooltip.Grow";
+                            event.toolTip.add(EnumChatFormatting.GREEN + " - " + StatCollector.translateToLocal("agricraft_tooltip.CanGrow") + ": " + StatCollector.translateToLocal(display));
+                        }
+                    }
+                } else {
+                    event.toolTip.add(" " + StatCollector.translateToLocal("agricraft_tooltip.unidentified"));
                 }
             }
         }
     }
 
-    /** Adds tooltips to items that are trowels (implementing ITrowel) */
+    /**
+     * Adds tooltips to items that are trowels (implementing ITrowel)
+     */
     @SubscribeEvent
     public void addTrowelTooltip(ItemTooltipEvent event) {
         ItemStack stack = event.itemStack;
-        if(stack==null || stack.getItem()==null || !(stack.getItem() instanceof ITrowel)) {
+        if (stack == null || stack.getItem() == null || !(stack.getItem() instanceof ITrowel)) {
             return;
         }
         ITrowel trowel = (ITrowel) stack.getItem();
-        if(stack.getItemDamage()==0) {
+        if (stack.getItemDamage() == 0) {
             event.toolTip.add(StatCollector.translateToLocal("agricraft_tooltip.trowel"));
-        }
-        else if(trowel.hasSeed(stack)) {
+        } else if (trowel.hasSeed(stack)) {
             ItemStack seed = trowel.getSeed(stack);
             event.toolTip.add(StatCollector.translateToLocal("agricraft_tooltip.seed") + ": " + seed.getItem().getItemStackDisplayName(seed));
         }
     }
 
-    /** Adds tooltips to items that are clippers (implementing IClipper) */
+    /**
+     * Adds tooltips to items that are clippers (implementing IClipper)
+     */
     @SubscribeEvent
     public void addClipperTooltip(ItemTooltipEvent event) {
         ItemStack stack = event.itemStack;

@@ -26,7 +26,7 @@ public class CropPlantMobDropCrop extends CropPlantGeneric {
 
     @Override
     public ArrayList<ItemStack> getAllFruits() {
-        ArrayList<ItemStack> fruits = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> fruits = new ArrayList<>();
         fruits.add(new ItemStack(getBlock().getItemDropped(7, null, 0)));
         return fruits;
     }

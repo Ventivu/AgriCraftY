@@ -27,7 +27,7 @@ public class MultiBlockManager implements IMultiBlockManager<MultiBlockPartData>
                 continue;
             }
             TileEntity te = world.getTileEntity(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
-            if (te != null && te instanceof IMultiBlockComponent && component.isValidComponent((IMultiBlockComponent) te)) {
+            if (te instanceof IMultiBlockComponent && component.isValidComponent((IMultiBlockComponent) te)) {
                 IMultiBlockComponent componentAt = (IMultiBlockComponent) te;
                 if (canCheckForMultiBlock(componentAt)) {
                     if (checkForMultiBlock(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, componentAt)) {
@@ -69,7 +69,7 @@ public class MultiBlockManager implements IMultiBlockManager<MultiBlockPartData>
         if (world.isRemote) {
             world.markBlockRangeForRenderUpdate(xMin, yMin, zMin, xMax, yMax, zMax);
         }
-        ((IMultiBlockComponent) world.getTileEntity(xMin, yMin, zMin)).postMultiBlockCreation();
+        ((IMultiBlockComponent<?, ?>) world.getTileEntity(xMin, yMin, zMin)).postMultiBlockCreation();
     }
 
     private boolean canCheckForMultiBlock(IMultiBlockComponent component) {
@@ -116,12 +116,9 @@ public class MultiBlockManager implements IMultiBlockManager<MultiBlockPartData>
         x = x - data.posX();
         y = y - data.posY();
         z = z - data.posZ();
-        while (true) {
+        do {
             it.increment();
-            if (!isValidComponent(world, x - it.x(), y - it.y(), z - it.z(), component)) {
-                break;
-            }
-        }
+        } while (isValidComponent(world, x - it.x(), y - it.y(), z - it.z(), component));
         return it.getOffset() - 1;
     }
 
@@ -134,12 +131,9 @@ public class MultiBlockManager implements IMultiBlockManager<MultiBlockPartData>
         x = x - data.posX();
         y = y - data.posY();
         z = z - data.posZ();
-        while (true) {
+        do {
             it.increment();
-            if (!isValidComponent(world, x + it.x(), y + it.y(), z + it.z(), component)) {
-                break;
-            }
-        }
+        } while (isValidComponent(world, x + it.x(), y + it.y(), z + it.z(), component));
         return it.getOffset();
     }
 
@@ -158,7 +152,7 @@ public class MultiBlockManager implements IMultiBlockManager<MultiBlockPartData>
 
     private boolean isValidComponent(World world, int x, int y, int z, IMultiBlockComponent component) {
         TileEntity te = world.getTileEntity(x, y, z);
-        return (te != null) && (te instanceof IMultiBlockComponent) && (component.isValidComponent((IMultiBlockComponent) te));
+        return (te instanceof IMultiBlockComponent) && (component.isValidComponent((IMultiBlockComponent) te));
     }
 
     @SuppressWarnings("unchecked")
@@ -167,7 +161,7 @@ public class MultiBlockManager implements IMultiBlockManager<MultiBlockPartData>
             for (int y=yMin;y<yMax;y++) {
                 for (int z=zMin;z<zMax;z++) {
                     TileEntity te = world.getTileEntity(x, y, z);
-                    if((te == null) || !(te instanceof IMultiBlockComponent)) {
+                    if (!(te instanceof IMultiBlockComponent)) {
                         continue;
                     }
                     IMultiBlockComponent component = (IMultiBlockComponent) te;

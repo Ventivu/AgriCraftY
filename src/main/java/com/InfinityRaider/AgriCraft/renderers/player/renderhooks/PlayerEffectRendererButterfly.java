@@ -27,7 +27,7 @@ public class PlayerEffectRendererButterfly extends PlayerEffectRenderer {
 
     @Override
     ArrayList<String> getDisplayNames() {
-        ArrayList<String> names = new ArrayList<String>();
+        ArrayList<String> names = new ArrayList<>();
         names.add("ValsNoisyToys");
         return names;
     }
@@ -42,7 +42,7 @@ public class PlayerEffectRendererButterfly extends PlayerEffectRenderer {
     }
 
     private double[] getPosition() {
-        double arg = Math.toRadians(360 * (System.currentTimeMillis() & 0x3FFFL) / 0x3FFFL);
+        double arg = Math.toRadians(360f * (System.currentTimeMillis() & 0x3FFFL) / 0x3FFFL);
         double vY = 10;
         double aY = 0.1F;
         double dy = aY*Math.cos(vY*arg);
@@ -113,7 +113,7 @@ public class PlayerEffectRendererButterfly extends PlayerEffectRenderer {
             float scale = player.worldObj.rand.nextFloat();
             double radius = 0.3*player.worldObj.rand.nextDouble();
             double angle = Math.toRadians(player.worldObj.rand.nextInt(360));
-            DustFX particle = new DustFX(player.worldObj, player.posX+xNew+radius*Math.cos(angle), player.posY-2*y, +player.posZ+zNew+radius*Math.sin(angle), scale, 0.01F, vector, sparkle);
+            DustFX particle = new DustFX(player.worldObj, player.posX + xNew + radius * Math.cos(angle), player.posY - 2 * y, player.posZ + zNew + radius * Math.sin(angle), scale, 0.01F, vector, sparkle);
             Minecraft.getMinecraft().effectRenderer.addEffect(particle);
         }
     }

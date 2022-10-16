@@ -81,7 +81,7 @@ public class MessageTileEntitySeedStorage extends MessageAgriCraft {
         @Override
         public IMessage onMessage(MessageTileEntitySeedStorage message, MessageContext context) {
             TileEntity te = FMLClientHandler.instance().getClient().theWorld.getTileEntity(message.x, message.y, message.z);
-            if(te!=null && te instanceof TileEntitySeedStorage) {
+            if (te instanceof TileEntitySeedStorage) {
                 TileEntitySeedStorage storage = (TileEntitySeedStorage) te;
                 ItemStack stack = storage.getLockedSeed();
                 stack.stackSize = message.amount;

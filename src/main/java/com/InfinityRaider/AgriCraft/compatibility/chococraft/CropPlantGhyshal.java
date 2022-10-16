@@ -26,8 +26,8 @@ public class CropPlantGhyshal extends CropPlant {
 
     public CropPlantGhyshal() throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
         super();
-        Class chochoCraftBlocks = Class.forName("chococraft.common.config.ChocoCraftBlocks");
-        Class chocoCraftItems = Class.forName("chococraft.common.config.ChocoCraftItems");
+        Class<?> chochoCraftBlocks = Class.forName("chococraft.common.config.ChocoCraftBlocks");
+        Class<?> chocoCraftItems = Class.forName("chococraft.common.config.ChocoCraftItems");
         seed = (Item) chocoCraftItems.getField("gysahlSeedsItem").get(null);
         plant = (Block) chochoCraftBlocks.getField("gysahlStemBlock").get(null);
         gysahlGreen = (Block) chochoCraftBlocks.getField("gysahlGreenBlock").get(null);
@@ -52,7 +52,7 @@ public class CropPlantGhyshal extends CropPlant {
 
     @Override
     public ArrayList<ItemStack> getAllFruits() {
-        ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> list = new ArrayList<>();
         list.add(new ItemStack(gysahlGreen));
         list.add(new ItemStack(gysahlLovely));
         list.add(new ItemStack(gysahlGold));
@@ -66,7 +66,7 @@ public class CropPlantGhyshal extends CropPlant {
 
     @Override
     public ArrayList<ItemStack> getFruitsOnHarvest(int gain, Random rand) {
-        ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> list = new ArrayList<>();
         int nr = (int) (Math.ceil((gain + 0.00) / 3));
         while(nr>0) {
             ItemStack fruitStack;

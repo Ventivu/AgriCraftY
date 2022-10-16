@@ -196,14 +196,14 @@ public class RenderWaterPad extends RenderBlockBase {
         int zLower = Math.max(0, 1 + 14 * side.offsetZ);
         int zUpper = Math.min(16, 15 + 14 * side.offsetZ);
         Block block = world.getBlock(x+side.offsetX, y, z+side.offsetZ);
-        if(block!=null && block instanceof BlockWaterPad) {
+        if (block instanceof BlockWaterPad) {
             boolean flag = block instanceof BlockWaterPadFull;
             if (full) {
                 IIcon icon = Blocks.water.getIcon(0, 0);
                 int l = Blocks.water.colorMultiplier(world, x, y, z);
-                float f = (float)(l >> 16 & 255) / 255.0F;
-                float f1 = (float)(l >> 8 & 255) / 255.0F;
-                float f2 = (float)(l & 255) / 255.0F;
+                float f = (float) (l >> 16 & 255) / 255.0F;
+                float f1 = (float) (l >> 8 & 255) / 255.0F;
+                float f2 = (float) (l & 255) / 255.0F;
                 float f4 = 1.0F;
                 tessellator.setBrightness(Blocks.water.getMixedBrightnessForBlock(world, x, y, z));
                 tessellator.setColorRGBA_F(f4 * f, f4 * f1, f4 * f2, 0.8F);

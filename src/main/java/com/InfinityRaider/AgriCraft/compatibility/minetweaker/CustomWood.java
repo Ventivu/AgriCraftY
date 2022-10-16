@@ -47,14 +47,14 @@ public class CustomWood {
                 return;
             }
 
-            List<ItemStack> inputsConverted = new ArrayList<ItemStack>();
+            List<ItemStack> inputsConverted = new ArrayList<>();
             for (IItemStack[] input : inputs) {
                 for (IItemStack stack : input) {
                     inputsConverted.add(MineTweakerMC.getItemStack(stack));
                 }
             }
 
-            MineTweakerAPI.apply(new AddRecipeAction(outputStack, inputsConverted.toArray(new ItemStack[inputsConverted.size()]), shaped));
+            MineTweakerAPI.apply(new AddRecipeAction(outputStack, inputsConverted.toArray(new ItemStack[0]), shaped));
         } else {
             MineTweakerAPI.logError(outputStack.getDisplayName() + " is not of type ItemBlockCustomWood.");
         }
@@ -98,12 +98,7 @@ public class CustomWood {
         @SuppressWarnings("unchecked")
         public void undo() {
             List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
-            for (Iterator<IRecipe> iter = recipes.iterator(); iter.hasNext();) {
-                IRecipe recipe = iter.next();
-                if (recipe.getRecipeOutput() != null && outputStack.isItemEqual(recipe.getRecipeOutput())) {
-                    iter.remove();
-                }
-            }
+            recipes.removeIf(recipe -> recipe.getRecipeOutput() != null && outputStack.isItemEqual(recipe.getRecipeOutput()));
         }
 
         @Override
@@ -125,7 +120,7 @@ public class CustomWood {
     private static class RemoveRecipeAction implements IUndoableAction {
 
         private final ItemStack output;
-        private final List<IRecipe> removedRecipes = new ArrayList<IRecipe>();
+        private final List<IRecipe> removedRecipes = new ArrayList<>();
 
         public RemoveRecipeAction(ItemStack output) {
             this.output = output;

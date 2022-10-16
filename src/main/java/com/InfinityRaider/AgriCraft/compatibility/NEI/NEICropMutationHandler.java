@@ -35,7 +35,7 @@ public class NEICropMutationHandler extends AgriCraftNEIHandler {
         PositionedStack parent1;
         PositionedStack parent2;
         PositionedStack result;
-        List<PositionedStack> soils = new ArrayList<PositionedStack>();
+        List<PositionedStack> soils = new ArrayList<>();
         PositionedStack requiredBlock;
         RequirementType requiredType;
 
@@ -72,7 +72,7 @@ public class NEICropMutationHandler extends AgriCraftNEIHandler {
         //return ingredients
         @Override
         public List<PositionedStack> getIngredients() {
-            List<PositionedStack> list = new ArrayList<PositionedStack>();
+            List<PositionedStack> list = new ArrayList<>();
             list.add(parent1);
             list.add(parent2);
             list.add(soils.get(NEICropMutationHandler.this.cycleticks / 20 % soils.size()));

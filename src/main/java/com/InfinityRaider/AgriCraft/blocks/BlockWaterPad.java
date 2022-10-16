@@ -37,7 +37,7 @@ public class BlockWaterPad extends BlockAgriCraft {
         super(mat);
         this.setHardness(0.5F);
         this.setStepSound(soundTypeGravel);
-        this.maxY = Constants.UNIT * (Constants.WHOLE / 2);
+        this.maxY = Constants.UNIT * (Constants.WHOLE / 2f);
     }
 
 

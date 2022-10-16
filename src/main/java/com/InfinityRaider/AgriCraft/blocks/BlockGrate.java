@@ -56,7 +56,7 @@ public class BlockGrate extends BlockCustomWood {
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float fX, float fY, float fZ) {
         TileEntity tile = world.getTileEntity(x, y, z);
-        if (tile == null || !(tile instanceof TileEntityGrate)) {
+        if (!(tile instanceof TileEntityGrate)) {
             return true;
         }
         TileEntityGrate grate = (TileEntityGrate) tile;
@@ -81,12 +81,12 @@ public class BlockGrate extends BlockCustomWood {
         ArrayList<ItemStack> items = super.getDrops(world, x, y, z, metadata, fortune);
         if(!world.isRemote) {
             TileEntity te = world.getTileEntity(x, y, z);
-            if (te != null && (te instanceof TileEntityGrate)) {
+            if ((te instanceof TileEntityGrate)) {
                 TileEntityGrate grate = (TileEntityGrate) te;
                 int stackSize = 0;
-                stackSize = grate.hasVines(true)?stackSize+1:stackSize;
-                stackSize = grate.hasVines(false)?stackSize+1:stackSize;
-                if(stackSize>0) {
+                stackSize = grate.hasVines(true) ? stackSize + 1 : stackSize;
+                stackSize = grate.hasVines(false) ? stackSize + 1 : stackSize;
+                if (stackSize > 0) {
                     items.add(new ItemStack(Blocks.vine, stackSize));
                 }
             }
@@ -106,7 +106,7 @@ public class BlockGrate extends BlockCustomWood {
     public AxisAlignedBB getBoundingBox(World world, int x, int y, int z) {
         TileEntity tile = world.getTileEntity(x, y, z);
         AxisAlignedBB box;
-        if (tile == null || !(tile instanceof TileEntityGrate)) {
+        if (!(tile instanceof TileEntityGrate)) {
             box = super.getCollisionBoundingBoxFromPool(world, x, y, z);
         } else {
             box = ((TileEntityGrate) tile).getBoundingBox();
@@ -118,8 +118,8 @@ public class BlockGrate extends BlockCustomWood {
     @Override
     public MovingObjectPosition collisionRayTrace(World world, int x, int y, int z, Vec3 vec0, Vec3 vec1) {
         this.setBlockBoundsBasedOnState(world, x, y, z);
-        vec0 = vec0.addVector((double)(-x), (double)(-y), (double)(-z));
-        vec1 = vec1.addVector((double) (-x), (double) (-y), (double) (-z));
+        vec0 = vec0.addVector(-x, -y, -z);
+        vec1 = vec1.addVector(-x, -y, -z);
         Vec3 vec2 = vec0.getIntermediateWithXValue(vec1, this.minX);
         Vec3 vec3 = vec0.getIntermediateWithXValue(vec1, this.maxX);
         Vec3 vec4 = vec0.getIntermediateWithYValue(vec1, this.minY);
@@ -185,7 +185,7 @@ public class BlockGrate extends BlockCustomWood {
             if (vec8 == vec7) {
                 b0 = 3;
             }
-            return new MovingObjectPosition(x, y, z, b0, vec8.addVector((double)x, (double)y, (double) z));
+            return new MovingObjectPosition(x, y, z, b0, vec8.addVector(x, y, z));
         }
     }
 
@@ -215,7 +215,7 @@ public class BlockGrate extends BlockCustomWood {
 
     private double[] getBlockBounds(World world, int x, int y, int z) {
         TileEntity tile = world.getTileEntity(x, y, z);
-        if(tile==null || !(tile instanceof TileEntityGrate)) {
+        if (!(tile instanceof TileEntityGrate)) {
             //something is wrong
             return null;
         }

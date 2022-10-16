@@ -1,8 +1,8 @@
 package com.InfinityRaider.AgriCraft.gui;
 
+import com.InfinityRaider.AgriCraft.container.ContainerSeedStorageBase;
 import com.InfinityRaider.AgriCraft.farming.CropPlantHandler;
 import com.InfinityRaider.AgriCraft.farming.PlantStats;
-import com.InfinityRaider.AgriCraft.container.ContainerSeedStorageBase;
 import com.InfinityRaider.AgriCraft.reference.Names;
 import com.InfinityRaider.AgriCraft.tileentity.storage.ISeedStorageControllable;
 import com.InfinityRaider.AgriCraft.tileentity.storage.SeedStorageSlot;
@@ -20,7 +20,6 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @SideOnly(Side.CLIENT)
@@ -76,7 +75,7 @@ public abstract class GuiSeedStorageBase extends GuiContainer {
 
     protected void getActiveSeed() {
         TileEntity tile = this.container.getTileEntity();
-        if(tile==null || !(tile instanceof ISeedStorageControllable)) {
+        if (!(tile instanceof ISeedStorageControllable)) {
             return;
         }
         ISeedStorageControllable storage = (ISeedStorageControllable) tile;
@@ -111,27 +110,27 @@ public abstract class GuiSeedStorageBase extends GuiContainer {
         if(this.setActiveSeedButtonOffset_X<0 || this.setActiveSeedButtonOffset_Y<0) {
             return;
         }
-        this.setActiveSeedButtons = new ArrayList<Component<ItemStack>>();
+        this.setActiveSeedButtons = new ArrayList<>();
         List<ItemStack> list = container.getSeedEntries();
         if(list!=null) {
             for (int i = 0; i < list.size(); i++) {
                 int xOffset = this.setActiveSeedButtonOffset_X + (16*i)%64;
                 int yOffset = this.setActiveSeedButtonOffset_Y + 16*(i/4);
-                this.setActiveSeedButtons.add(new Component<ItemStack>(list.get(i), xOffset, yOffset, 16, 16));
+                this.setActiveSeedButtons.add(new Component<>(list.get(i), xOffset, yOffset, 16, 16));
             }
         }
     }
 
     private void initSeedSlots() {
         getActiveSeed();
-        this.activeSeeds = new ArrayList<Component<PlantStatsStorage>>();
+        this.activeSeeds = new ArrayList<>();
         List<SeedStorageSlot> list = this.container.getSeedSlots(this.activeSeed, this.activeMeta);
         if(list!=null) {
             this.sortByStat(list);
             for (int i = scrollPositionHorizontal; i < Math.min(list.size(), scrollPositionHorizontal + maxHorSlots); i++) {
                 SeedStorageSlot slot = list.get(i);
                 PlantStatsStorage stats = new PlantStatsStorage(slot.getId(), slot.getStack(this.activeSeed, this.activeMeta));
-                activeSeeds.add(new Component<PlantStatsStorage>(stats, this.guiLeft + seedSlotButtonOffset_X + (i-scrollPositionHorizontal) * 16, this.guiTop + seedSlotButtonOffset_Y, 16, 16));
+                activeSeeds.add(new Component<>(stats, this.guiLeft + seedSlotButtonOffset_X + (i - scrollPositionHorizontal) * 16, this.guiTop + seedSlotButtonOffset_Y, 16, 16));
             }
         }
     }
@@ -212,15 +211,15 @@ public abstract class GuiSeedStorageBase extends GuiContainer {
             case buttonIdStrength: stat = Names.NBT.strength; break;
         }
         if(stat!=null && this.activeSeed!=null) {
-            Collections.sort(list, new SeedStorageSlot.SlotComparator(stat));
+            list.sort(new SeedStorageSlot.SlotComparator(stat));
         }
     }
 
     private void scrollVertical(int amount) {
         int newPos = this.scrollPositionVertical+amount;
-        newPos = newPos<0?0:newPos;
+        newPos = Math.max(newPos, 0);
         int maxScrollY = this.getMaxVerticalScroll();
-        newPos = newPos>maxScrollY?maxScrollY:newPos;
+        newPos = Math.min(newPos, maxScrollY);
         this.scrollPositionVertical = newPos;
     }
 
@@ -238,9 +237,9 @@ public abstract class GuiSeedStorageBase extends GuiContainer {
     private void scrollHorizontal(int amount) {
         if(this.hasActiveSeed()) {
             int newPos = this.scrollPositionHorizontal + amount;
-            newPos = newPos < 0 ? 0 : newPos;
+            newPos = Math.max(newPos, 0);
             int maxScrollX = this.getMaxHorizontalScroll();
-            newPos = newPos > maxScrollX ? maxScrollX : newPos;
+            newPos = Math.min(newPos, maxScrollX);
             this.scrollPositionHorizontal = newPos;
         }
     }

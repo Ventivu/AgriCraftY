@@ -47,7 +47,7 @@ public class MessageSyncFluidLevel extends MessageAgriCraft {
             World world = AgriCraft.proxy.getClientWorld();
             if(world != null) {
                 TileEntity tile = world.getTileEntity(message.x, message.y, message.z);
-                if(tile!=null && (tile instanceof IIrrigationComponent)) {
+                if ((tile instanceof IIrrigationComponent)) {
                     ((IIrrigationComponent) tile).setFluidLevel(message.lvl);
                 }
             }

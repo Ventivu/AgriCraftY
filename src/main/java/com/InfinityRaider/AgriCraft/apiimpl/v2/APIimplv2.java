@@ -1,15 +1,14 @@
 package com.InfinityRaider.AgriCraft.apiimpl.v2;
 
 import com.InfinityRaider.AgriCraft.api.APIStatus;
-import com.InfinityRaider.AgriCraft.api.v1.*;
+import com.InfinityRaider.AgriCraft.api.v1.BlockWithMeta;
+import com.InfinityRaider.AgriCraft.api.v1.IGrowthRequirement;
 import com.InfinityRaider.AgriCraft.api.v2.*;
-import com.InfinityRaider.AgriCraft.api.v2.ICropPlant;
-import com.InfinityRaider.AgriCraft.api.v2.ISeedStats;
 import com.InfinityRaider.AgriCraft.apiimpl.v1.APIimplv1;
 import com.InfinityRaider.AgriCraft.farming.CropPlantHandler;
-import com.InfinityRaider.AgriCraft.farming.growthrequirement.GrowthRequirementHandler;
 import com.InfinityRaider.AgriCraft.farming.PlantStats;
 import com.InfinityRaider.AgriCraft.farming.cropplant.CropPlantAPIv2;
+import com.InfinityRaider.AgriCraft.farming.growthrequirement.GrowthRequirementHandler;
 import com.InfinityRaider.AgriCraft.farming.mutation.statcalculator.StatCalculator;
 import com.InfinityRaider.AgriCraft.farming.mutation.statcalculator.StatCalculatorAPIv2;
 import com.InfinityRaider.AgriCraft.handler.ConfigurationHandler;
@@ -67,7 +66,7 @@ public class APIimplv2 extends APIimplv1 implements APIv2 {
     @Override
     public ICropPlant getCropPlant(World world, int x, int y, int z) {
         TileEntity te = world.getTileEntity(x, y, z);
-        if(te==null || !(te instanceof TileEntityCrop)) {
+        if (!(te instanceof TileEntityCrop)) {
             return null;
         }
         return ((TileEntityCrop) te).getPlant();
@@ -145,7 +144,7 @@ public class APIimplv2 extends APIimplv1 implements APIv2 {
     @Override
     public ArrayList<ItemStack> getDiscoveredSeedsFromJournal(ItemStack journal) {
         if(journal == null || journal.getItem() == null || !(journal.getItem() instanceof IJournal)) {
-            return new ArrayList<ItemStack>();
+            return new ArrayList<>();
         }
         return ((IJournal) journal.getItem()).getDiscoveredSeeds(journal);
     }

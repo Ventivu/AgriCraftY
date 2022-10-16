@@ -13,7 +13,7 @@ public class GanysSurfaceHelper extends ModHelper {
     protected void initPlants() {
         Item seed = (Item) Item.itemRegistry.getObject("ganyssurface:camelliaSeeds");
         Item fruit = (Item) Item.itemRegistry.getObject("ganyssurface:teaLeaves");
-        if(seed != null && seed instanceof ItemSeeds && fruit != null) {
+        if (seed instanceof ItemSeeds && fruit != null) {
             OreDictionary.registerOre("seedCamellia", seed);
             OreDictionary.registerOre("cropCamellia", fruit);
             CropPlantGanysSurface plant = new CropPlantGanysSurface((ItemSeeds) seed, "ganysSurface_camellia");

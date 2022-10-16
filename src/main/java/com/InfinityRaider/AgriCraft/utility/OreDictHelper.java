@@ -17,11 +17,11 @@ import java.util.Map;
 
 public abstract class OreDictHelper {
 
-    private static final Map<String, Block> oreBlocks = new HashMap<String, Block>();
-    private static final Map<String, Integer> oreBlockMeta = new HashMap<String, Integer>();
+    private static final Map<String, Block> oreBlocks = new HashMap<>();
+    private static final Map<String, Integer> oreBlockMeta = new HashMap<>();
 
-    private static final Map<String, Item> nuggets = new HashMap<String, Item>();
-    private static final Map<String, Integer> nuggetMeta = new HashMap<String, Integer>();
+    private static final Map<String, Item> nuggets = new HashMap<>();
+    private static final Map<String, Integer> nuggetMeta = new HashMap<>();
 
     public static Block getOreBlockForName(String name) {
         return oreBlocks.get(name);
@@ -138,7 +138,7 @@ public abstract class OreDictHelper {
 
     public static ArrayList<ItemStack> getFruitsFromOreDict(ItemStack seed, boolean sameMod) {
         String seedModId = IOHelper.getModId(seed);
-        ArrayList<ItemStack> fruits = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> fruits = new ArrayList<>();
 
         for(int id:OreDictionary.getOreIDs(seed)) {
             if(OreDictionary.getOreName(id).substring(0,4).equalsIgnoreCase("seed")) {

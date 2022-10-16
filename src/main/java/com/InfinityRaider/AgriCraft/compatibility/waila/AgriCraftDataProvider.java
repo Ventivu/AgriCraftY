@@ -34,8 +34,8 @@ public class AgriCraftDataProvider implements IWailaDataProvider {
     @Override
     public List<String> getWailaBody(ItemStack itemStack, List<String> list, IWailaDataAccessor dataAccessor, IWailaConfigHandler configHandler) {
         TileEntity te = dataAccessor.getTileEntity();
-        if(te!=null && te instanceof TileEntityAgricraft) {
-            ((TileEntityAgricraft)te).addWailaInformation(list);
+        if (te instanceof TileEntityAgricraft) {
+            ((TileEntityAgricraft) te).addWailaInformation(list);
         }
         return list;
     }

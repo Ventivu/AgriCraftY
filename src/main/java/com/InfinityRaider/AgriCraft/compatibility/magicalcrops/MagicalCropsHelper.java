@@ -86,7 +86,7 @@ public final class MagicalCropsHelper extends ModHelper {
     }
 
     private void initV4Plants() {
-        ArrayList<Class> classes = new ArrayList<Class>();
+        ArrayList<Class> classes = new ArrayList<>();
         Method getDropMethod = null;
         try {
             classes.add(Class.forName("com.mark719.magicalcrops.handlers.MSeeds"));
@@ -143,7 +143,7 @@ public final class MagicalCropsHelper extends ModHelper {
     @Override
     protected List<Item> getTools() {
         fertiliser = new MagicalCropsFertiliser();
-        ArrayList<Item> list = new ArrayList<Item>();
+        ArrayList<Item> list = new ArrayList<>();
         if(newVersion) {
             list.add((Item) Item.itemRegistry.getObject("magicalcrops:magicalcrops_MagicalFertilizer"));
         } else {

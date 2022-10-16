@@ -42,10 +42,10 @@ public class CropPlantMandrake extends CropPlantWitchery {
                     mandrake.setLocationAndAngles(1.5D + (double) x, 0.05D + (double) y, 1.5D + (double) z, 0.0F, 0.0F);
                     world.spawnEntityInWorld(mandrake);
                     //particle effect
-                    Class particleEffectClass = Class.forName("com.emoniph.witchery.util.ParticleEffect");
+                    Class<?> particleEffectClass = Class.forName("com.emoniph.witchery.util.ParticleEffect");
                     Object explodeEffect = particleEffectClass.getField("EXPLODE").get(null);
                     //sound effect
-                    Class soundEffectClass = Class.forName("com.emoniph.witchery.util.SoundEffect");
+                    Class<?> soundEffectClass = Class.forName("com.emoniph.witchery.util.SoundEffect");
                     Object noneEffect = soundEffectClass.getField("NONE").get(null);
                     //create packet
                     Object packetParticles = Class.forName("com.emoniph.witchery.network.PacketParticles").getConstructor(particleEffectClass, soundEffectClass, Entity.class, double.class, double.class).newInstance(explodeEffect, noneEffect, mandrake, 0.5D, 1.0D);

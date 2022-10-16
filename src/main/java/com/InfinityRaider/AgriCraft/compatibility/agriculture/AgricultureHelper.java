@@ -18,13 +18,13 @@ public class AgricultureHelper extends ModHelper {
     @Override
     protected void initPlants() {
         try {
-            Class registry = Class.forName("com.teammetallurgy.agriculture.BlockList");
+            Class<?> registry = Class.forName("com.teammetallurgy.agriculture.BlockList");
             for (Field field : registry.getDeclaredFields()) {
                 Object obj = field.get(null);
                 if (!(obj instanceof BlockCrops)) {
                     continue;
                 }
-                Class plantClass = Class.forName("com.teammetallurgy.agriculture.block.plant.BlockPlant");
+                Class<?> plantClass = Class.forName("com.teammetallurgy.agriculture.block.plant.BlockPlant");
                 Field plantField = plantClass.getDeclaredField("harvestItemStack");
                 plantField.setAccessible(true);
                 CropPlantHandler.registerPlant(new CropPlantAgriCulture((BlockCrops) obj, (ItemStack) plantField.get(obj)));

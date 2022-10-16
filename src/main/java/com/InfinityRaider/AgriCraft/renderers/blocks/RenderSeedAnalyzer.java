@@ -50,7 +50,7 @@ public class RenderSeedAnalyzer extends RenderBlockBase {
 
     @Override
     protected boolean doWorldRender(Tessellator tessellator, IBlockAccess world, double x, double y, double z, TileEntity tile, Block block, float f, int modelId, RenderBlocks renderer, boolean callFromTESR) {
-        if(tile==null || !(tile instanceof TileEntitySeedAnalyzer)) {
+        if (!(tile instanceof TileEntitySeedAnalyzer)) {
             return false;
         }
         TileEntitySeedAnalyzer analyzer= (TileEntitySeedAnalyzer) tile;

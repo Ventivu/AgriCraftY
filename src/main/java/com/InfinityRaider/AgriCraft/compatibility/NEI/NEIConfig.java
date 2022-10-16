@@ -101,7 +101,7 @@ public class NEIConfig implements IConfigureNEI {
                     if (BlockCustomWood.class.isAssignableFrom(obj.getClass())) {
                         Block block = (Block) obj;
                         ItemStack stack = new ItemStack(block);
-                        ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+                        ArrayList<ItemStack> list = new ArrayList<>();
                         list.add(stack);
                         API.setItemListEntries(stack.getItem(), list);
                     }

@@ -36,7 +36,7 @@ public class CropPlantMagicalCropsV4 extends CropPlantGeneric {
 
     @Override
     public ArrayList<ItemStack> getAllFruits() {
-        ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> list = new ArrayList<>();
         if(highTier()) {
             int meta = 0;
             list.add(new ItemStack(drop, 1, meta));

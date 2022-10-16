@@ -1,9 +1,9 @@
 package com.InfinityRaider.AgriCraft.tileentity.peripheral;
 
 import com.InfinityRaider.AgriCraft.blocks.BlockCrop;
-import com.InfinityRaider.AgriCraft.tileentity.peripheral.method.*;
 import com.InfinityRaider.AgriCraft.reference.Names;
 import com.InfinityRaider.AgriCraft.tileentity.TileEntitySeedAnalyzer;
+import com.InfinityRaider.AgriCraft.tileentity.peripheral.method.*;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -13,9 +13,11 @@ import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import li.cil.oc.api.machine.Arguments;
 import li.cil.oc.api.machine.Context;
-import li.cil.oc.api.network.*;
+import li.cil.oc.api.network.ManagedPeripheral;
+import li.cil.oc.api.network.SimpleComponent;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.ForgeDirection;
+
 import java.util.HashMap;
 
 
@@ -80,9 +82,9 @@ public class TileEntityPeripheral extends TileEntitySeedAnalyzer implements IPer
             }
             for(ForgeDirection dir:VALID_DIRECTIONS) {
                 int timer = timers.get(dir);
-                timer = timer + (isSideActive(dir)?1:-1);
-                timer = timer<0?0:timer;
-                timer = timer>MAX?MAX:timer;
+                timer = timer + (isSideActive(dir) ? 1 : -1);
+                timer = Math.max(timer, 0);
+                timer = Math.min(timer, MAX);
                 timers.put(dir, timer);
             }
             updateCheck = (updateCheck+1)%1200;
@@ -113,13 +115,13 @@ public class TileEntityPeripheral extends TileEntitySeedAnalyzer implements IPer
     @SideOnly(Side.CLIENT)
     private void checkSide(ForgeDirection dir) {
         if(timers == null) {
-            timers = new HashMap<ForgeDirection, Integer>();
+            timers = new HashMap<>();
         }
         if(!timers.containsKey(dir)) {
             timers.put(dir, 0);
         }
         if(activeSides == null) {
-            activeSides = new HashMap<ForgeDirection, Boolean>();
+            activeSides = new HashMap<>();
         }
         activeSides.put(dir, isCrop(dir));
     }
@@ -208,11 +210,11 @@ public class TileEntityPeripheral extends TileEntitySeedAnalyzer implements IPer
 
     @Override
     @Optional.Method(modid = Names.Mods.computerCraft)
-    public Object[] callMethod(IComputerAccess computer, ILuaContext context, int method, Object[] arguments) throws LuaException, InterruptedException {
+    public Object[] callMethod(IComputerAccess computer, ILuaContext context, int method, Object[] arguments) throws LuaException {
         IMethod calledMethod = methods[method];
         try {
             return invokeMethod(calledMethod, arguments);
-        } catch(MethodException e) {
+        } catch (MethodException e) {
             throw new LuaException(e.getDescription());
         }
     }

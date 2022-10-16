@@ -25,7 +25,7 @@ public class BlockFenceGate extends BlockCustomWood {
             return false;
         }
         TileEntity tile = world.getTileEntity(x, y, z);
-        if(tile==null || !(tile instanceof TileEntityFenceGate)) {
+        if (!(tile instanceof TileEntityFenceGate)) {
             return true;
         }
         TileEntityFenceGate gate = (TileEntityFenceGate) tile;
@@ -75,11 +75,11 @@ public class BlockFenceGate extends BlockCustomWood {
     @Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
         TileEntity tile = world.getTileEntity(x, y, z);
-        if(tile==null || !(tile instanceof TileEntityFenceGate)) {
+        if (!(tile instanceof TileEntityFenceGate)) {
             return null;
         }
         TileEntityFenceGate gate = (TileEntityFenceGate) tile;
-        return gate.isOpen()?null:(!gate.isZAxis()?AxisAlignedBB.getBoundingBox((double)((float)x + 0.375F), (double)y, (double)z, (double)((float)x + 0.625F), (double)((float)y + 1.5F), (double)(z + 1)) : AxisAlignedBB.getBoundingBox((double)x, (double)y, (double)((float)z + 0.375F), (double)(x + 1), (double)((float)y + 1.5F), (double)((float)z + 0.625F)));
+        return gate.isOpen() ? null : (!gate.isZAxis() ? AxisAlignedBB.getBoundingBox((float) x + 0.375F, y, z, (float) x + 0.625F, (float) y + 1.5F, z + 1) : AxisAlignedBB.getBoundingBox(x, y, (float) z + 0.375F, x + 1, (float) y + 1.5F, (float) z + 0.625F));
     }
 
     /**
@@ -88,7 +88,7 @@ public class BlockFenceGate extends BlockCustomWood {
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
         TileEntity tile = world.getTileEntity(x, y, z);
-        if(tile==null || !(tile instanceof TileEntityFenceGate)) {
+        if (!(tile instanceof TileEntityFenceGate)) {
             return;
         }
         TileEntityFenceGate gate = (TileEntityFenceGate) tile;
@@ -107,7 +107,7 @@ public class BlockFenceGate extends BlockCustomWood {
 
     public boolean isFenceGateOpen(IBlockAccess world, int x, int y, int z) {
         TileEntity tile = world.getTileEntity(x, y, z);
-        return !(tile == null || !(tile instanceof TileEntityFenceGate)) && ((TileEntityFenceGate) tile).isOpen();
+        return tile instanceof TileEntityFenceGate && ((TileEntityFenceGate) tile).isOpen();
     }
 
     public static class ItemBlockFenceGate extends ItemBlockCustomWood {

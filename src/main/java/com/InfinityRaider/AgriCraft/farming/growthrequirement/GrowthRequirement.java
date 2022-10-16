@@ -37,7 +37,7 @@ public class GrowthRequirement implements IGrowthRequirement{
 
     public List<BlockWithMeta> getSoilBlocks() {
         if(this.requiresSpecificSoil()) {
-            List<BlockWithMeta> list = new ArrayList<BlockWithMeta>();
+            List<BlockWithMeta> list = new ArrayList<>();
             list.add(soil);
             return list;
         }
@@ -45,7 +45,7 @@ public class GrowthRequirement implements IGrowthRequirement{
     }
 
     public List<BlockWithMeta> getBelowBlocks() {
-        List<BlockWithMeta> list = new ArrayList<BlockWithMeta>();
+        List<BlockWithMeta> list = new ArrayList<>();
         if(this.requiredType==RequirementType.BELOW) {
             list.add(requiredBlock);
         }
@@ -53,7 +53,7 @@ public class GrowthRequirement implements IGrowthRequirement{
     }
 
     public List<BlockWithMeta> getNearBlocks() {
-        List<BlockWithMeta> list = new ArrayList<BlockWithMeta>();
+        List<BlockWithMeta> list = new ArrayList<>();
         if(this.requiredType==RequirementType.NEARBY) {
             list.add(requiredBlock);
         }

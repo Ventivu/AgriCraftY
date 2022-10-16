@@ -26,7 +26,7 @@ public abstract class MethodBaseGrowthReq extends MethodBase {
         return onMethodCalled(getCropPlant(peripheral.getSpecimen()));
     }
 
-    protected abstract Object[] onMethodCalled(CropPlant plant) throws MethodException;
+    protected abstract Object[] onMethodCalled(CropPlant plant);
 
     @Override
     protected boolean appliesToPeripheral() {
@@ -40,7 +40,7 @@ public abstract class MethodBaseGrowthReq extends MethodBase {
 
     @Override
     protected ArrayList<MethodParameter> getParameters() {
-        ArrayList<MethodParameter> pars = new ArrayList<MethodParameter>();
+        ArrayList<MethodParameter> pars = new ArrayList<>();
         pars.add(MethodParameter.DIRECTION_OPTIONAL);
         return pars;
     }

@@ -23,7 +23,7 @@ public class CropPlantNatura extends CropPlant {
     private final Block plant;
     private final int seedMeta;
 
-    public CropPlantNatura(int seedMeta) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
+    public CropPlantNatura(int seedMeta) {
         this.seedMeta = seedMeta;
         seed = (Item) Item.itemRegistry.getObject("Natura:barley.seed");
         fruit = (Item) Item.itemRegistry.getObject("Natura:barleyFood");
@@ -52,7 +52,7 @@ public class CropPlantNatura extends CropPlant {
 
     @Override
     public ArrayList<ItemStack> getAllFruits() {
-        ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> list = new ArrayList<>();
         list.add(new ItemStack(fruit, 1, seedMeta*3));
         return list;
     }
@@ -65,7 +65,7 @@ public class CropPlantNatura extends CropPlant {
     @Override
     public ArrayList<ItemStack> getFruitsOnHarvest(int gain, Random rand) {
         int amount = (int) (Math.ceil((gain + 0.00) / 3));
-        ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> list = new ArrayList<>();
         while(amount>0) {
             list.add(getRandomFruit(rand));
             amount--;
@@ -101,14 +101,28 @@ public class CropPlantNatura extends CropPlant {
         //cotton: seedMeta = 1
         int meta = 7;
         switch (growthStage) {
-            case 0: meta = seedMeta*4;break;
-            case 1: meta = seedMeta*4;break;
-            case 2: meta = seedMeta*5;break;
-            case 3: meta = 1+seedMeta*4;break;
-            case 4: meta = 1+seedMeta*5;break;
-            case 5: meta = 2+seedMeta*4;break;
-            case 6: meta = 2+seedMeta*5;break;
-            case 7: meta = 3+seedMeta*5;break;
+            case 0:
+            case 1:
+                meta = seedMeta * 4;
+                break;
+            case 2:
+                meta = seedMeta * 5;
+                break;
+            case 3:
+                meta = 1 + seedMeta * 4;
+                break;
+            case 4:
+                meta = 1 + seedMeta * 5;
+                break;
+            case 5:
+                meta = 2 + seedMeta * 4;
+                break;
+            case 6:
+                meta = 2 + seedMeta * 5;
+                break;
+            case 7:
+                meta = 3 + seedMeta * 5;
+                break;
         }
         return getBlock().getIcon(0, meta);
     }

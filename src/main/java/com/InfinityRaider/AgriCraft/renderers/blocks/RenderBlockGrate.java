@@ -45,7 +45,7 @@ public class RenderBlockGrate extends RenderBlockCustomWood<TileEntityGrate> {
 
     @Override
     protected boolean doWorldRender(Tessellator tessellator, IBlockAccess world, double x, double y, double z, TileEntity tile, Block block, float f, int modelId, RenderBlocks renderer, boolean callFromTESR) {
-        if(tile==null || !(tile instanceof TileEntityGrate)) {
+        if (!(tile instanceof TileEntityGrate)) {
             return false;
         }
         TileEntityGrate grate = (TileEntityGrate) tile;

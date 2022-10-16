@@ -213,32 +213,35 @@ agricraft_tooltip.clipper3=其种植成功率由强度决定
 agricraft_tooltip.analyzer=样本
 agricraft_tooltip.storage=储存种子
 agricraft_tooltip.none=无
+agricraft_tooltip.CanGrow=能否生长
+agricraft_tooltip.Grow=可以生长
+agricraft_tooltip.GrowNG=无法生长
 
 //descriptions
-agricraft_description.peripheralHelp=Method Help
-agricraft_description.method.analyze=Orders the analyzer to analyze the current specimen
-agricraft_description.method.getBaseBlock=Returns the necessary base block for the crop at the specified direction or the specimen in the analyzer if no direction is specified
-agricraft_description.method.getBaseBlockType=Returns the base block type (NONE, BELOW, NEAR) for the crop at the specified direction or the specimen in the analyzer if no direction is specified
-agricraft_description.method.getBrightness=Returns the current light level for the crop at the specified direction
-agricraft_description.method.getBrightnessRange=Returns the required light level range for the crop at the specified direction or the specimen in the analyzer if no direction is specified
-agricraft_description.method.getCurrentSoil=Returns the current soil below the crop at the specified direction or the specimen in the analyzer if no direction is specified
-agricraft_description.method.getGrowthStage=Returns the growth percentage of the crop at the specified direction
-agricraft_description.method.getNeededSoil=Returns the required soil for the crop at the specified direction or the specimen in the analyzer if no direction is specified
-agricraft_description.method.getPlant=Returns the seed currently planted on the crop at the specified direction
-agricraft_description.method.getSpecimen=Returns the specimen currently in the analyzer
-agricraft_description.method.getStats=Returns the stats [growth, gain, strength] of crop at the specified direction or the specimen in the analyzer if no direction is specified
-agricraft_description.method.hasJournal=Returns if the analyzer has a journal
-agricraft_description.method.hasPlant=Returns if there is a plant on the crop sticks at the specified direction
-agricraft_description.method.hasWeeds=Returns if there are weeds on the crop at the specified direction
-agricraft_description.method.isAnalyzed=Returns if the crop at the specified direction, or the specimen in the analyzer (if no direction is specified) is analyzed
-agricraft_description.method.isCrossCrop=Returns if the crop at the specified direction is a cross crop
-agricraft_description.method.isFertile=Returns if the crop at the specified direction is fertile and can grow
-agricraft_description.method.isMature=Returns if the crop crop at the specified direction is mature
-agricraft_description.method.needsBaseBlock=Returns if the crop crop at the specified direction needs a base block
+agricraft_description.peripheralHelp=方法帮助
+agricraft_description.method.analyze=命令分析仪分析当前样本
+agricraft_description.method.getBaseBlock=返回在指定方向裁剪所需的基础块，如果未指定方向，则返回分析仪中的样本
+agricraft_description.method.getBaseBlockType=返回指定方向上裁剪的基本块类型（NONE、BELOW、NEAR），如果未指定方向，则返回分析仪中样本的基本块
+agricraft_description.method.getBrightness=返回指定方向上作物的当前亮度
+agricraft_description.method.getBrightnessRange=返回指定作物所需的亮度范围 direction or the specimen in the analyzer if no direction is specified
+agricraft_description.method.getCurrentSoil=返回作物下方指定方向的当前土壤，如果未指定方向，则返回分析仪中的样本
+agricraft_description.method.getGrowthStage=返回作物在指定方向上的生长百分比
+agricraft_description.method.getNeededSoil=返回作物在指定方向所需的土壤，如果未指定方向，则返回分析仪中的样本
+agricraft_description.method.getPlant=返回当前以指定方向种植在作物上的种子
+agricraft_description.method.getSpecimen=返回分析仪中当前的样本
+agricraft_description.method.getStats=返回指定方向上作物的统计数据[生长、增益、强度]，如果未指定方向，则返回分析仪中样本的统计数据
+agricraft_description.method.hasJournal=返回分析器是否有日志
+agricraft_description.method.hasPlant=返回作物上是否有植物以指定方向生长
+agricraft_description.method.hasWeeds=返回作物在指定方向上是否有杂草
+agricraft_description.method.isAnalyzed=返回是否分析了指定方向的作物或分析仪中的样本（如果未指定方向）
+agricraft_description.method.isCrossCrop=返回指定方向的裁剪是否为交叉裁剪
+agricraft_description.method.isFertile=返回指定方向的作物是否肥沃并且可以生长
+agricraft_description.method.isMature=返回指定方向的作物是否成熟
+agricraft_description.method.needsBaseBlock=返回指定方向的裁剪是否需要基本块
 
 //misc
-agricraft_arg.direction=direction
-agricraft_arg.direction.optional=(optional) direction
+agricraft_arg.direction=方向
+agricraft_arg.direction.optional=（可选）方向
 
 // nei GUI
 agricraft_nei.mutation.title=作物杂交
@@ -515,3 +518,164 @@ agricraft_journal.kitchenMod_lettuce=作为一种一年一收的耐寒植物，�
 agricraft_journal.kitchenMod_peanut=花生有很多用途.可以直接吃,经常出现在各 种食谱中,制成溶剂,油脂,药物,纺织材料, 哦还有花生酱,还有很多其他用途.
 agricraft_journal.kitchenMod_strawberry=草莓很受欢迎,适合种植于家庭环境中,可以直 接消费掉,或者用作装饰用途.
 agricraft_journal.kitchenMod_tomato=番茄有多种食用方式,包括生吃,还有各种菜 的原料,酱料,沙拉,或者饮料.
+
+//gany's nether
+agricraft_journal.ganysNether_ghostSeeds=这种可怕的作物是加工恐怖面粉的基础。
+agricraft_journal.ganysNether_hellBushSeeds=这棵灌木的浆果感觉温暖多汁，但我不会咬它们。。。
+agricraft_journal.ganysNether_quarzBerrySeeds=用石英制成的浆果，谁会想到呢！
+agricraft_journal.ganysNether_witherShrubSeeds=一种极为罕见的作物，能有效生长凋零骷髅头骨。
+
+//gany's surface
+agricraft_journal.ganysSurface_camellia=美味的茶叶可以从这种植物的叶子中加工出来。
+
+//et futurum
+agricraft_journal.etFuturum_beetRoot=甜菜根通常深紫色的根可以单独食用，也可以与蔬菜沙拉一起食用，可以煮熟、烤熟或生食。
+
+//calculator
+agricraft_journal.calulator_broccoli=西兰花是卷心菜家族中一种可食用的绿色植物，其大花头被用作蔬菜。
+
+//harder wild life
+agricraft_journal.harderWildLife_winterWheat=在低温下生长旺盛的作物。
+
+//Config localized
+AgriCraft.Config.agricraft=农业工艺
+AgriCraft.Config.agricraft.tooltip=农业工艺二代基础设定
+AgriCraft.Config.farming=务农
+AgriCraft.Config.farming.tooltip=农作物相关设定
+AgriCraft.Config.tools=工具
+AgriCraft.Config.tools.tooltip=决定各类工具是否启用
+AgriCraft.Config.debug=调试
+AgriCraft.Config.debug.tooltip=调试选项，非礼勿入
+AgriCraft.Config.world gen=世界生成
+AgriCraft.Config.world gen.tooltip=决定你想要的世界
+AgriCraft.Config.irrigation=浇灌
+AgriCraft.Config.irrigation.tooltip=调整浇灌系统的各项指标
+AgriCraft.Config.storage=存储
+AgriCraft.Config.storage.tooltip=开关存储方块
+AgriCraft.Config.decoration=装饰
+AgriCraft.Config.decoration.tooltip=开关装饰方块
+AgriCraft.Config.compatibility=联动
+AgriCraft.Config.compatibility.tooltip=各项模组的联动设定
+AgriCraft.Config.clientside config=客户端设定
+AgriCraft.Config.clientside config.tooltip=应该和渲染放一起的。。。
+AgriCraft.Config.rendering=渲染
+AgriCraft.Config.rendering.tooltip=只有一个描述特别长的开关
+AgriCraft.Config.Beta=测试性内容
+AgriCraft.Config.Beta.tooltip=并不适合大众的测试性功能，仅供专业人士使用
+
+//Child Configs localized
+AgriCraft.Config.desc.Resource Crops=材料作物
+AgriCraft.Config.desc.Crops per craft=合成数量
+AgriCraft.Config.desc.Crop stat cap=属性最大值
+AgriCraft.Config.desc.RegenDefaults=修改初始化
+AgriCraft.Config.desc.Custom crops=自定义种子
+AgriCraft.Config.desc.Clear tall grass drops=清理高草掉落
+AgriCraft.Config.desc.Render journal in analyzer=在分析器中呈现日志(OC)
+AgriCraft.Config.desc.Register crop products in the ore dict=注册作物至矿辞
+AgriCraft.Config.desc.Only create water pad while sneaking=下蹲以创建水田
+AgriCraft.Config.desc.Disable Vanilla Farming=禁用原版种植系统
+AgriCraft.Config.desc.Mutation Chance=杂交几率
+AgriCraft.Config.desc.Single spread stat increase=增殖增加属性
+AgriCraft.Config.desc.Valid parents=有效源
+AgriCraft.Config.desc.Non parent crops affect stats negatively=非亲本作物对属性数据产生负面影响
+AgriCraft.Config.desc.Hardcore stats=硬核属性
+AgriCraft.Config.desc.Crop stat divisor=属性除点
+AgriCraft.Config.desc.Enable weeds=强力除草
+AgriCraft.Config.desc.Weed Growth Multiplier=杂草扩散比
+AgriCraft.Config.desc.Weed Growth Rate=杂草生长速度
+AgriCraft.Config.desc.Weed Spawn Chance=杂草产生率
+AgriCraft.Config.desc.Weeds can overtake plants=杂草干爆植物
+AgriCraft.Config.desc.Bonemeal Mutations=骨粉诱变
+AgriCraft.Config.desc.Only mature crops drop seeds=未成熟作物无种子
+AgriCraft.Config.desc.Weeds destroy crop sticks=杂草干爆作物架
+AgriCraft.Config.desc.Growth rate multiplier=作物生长因数
+AgriCraft.Config.desc.Raking weeds drops items=耙杂草掉落物品
+AgriCraft.Config.desc.Mod specific drops=模组特定掉落
+AgriCraft.Config.desc.Enable Hand Rake=启用耙子
+AgriCraft.Config.desc.Enable Magnifying Glass=启用放大镜
+AgriCraft.Config.desc.Enable Trowel=启用园丁铲
+AgriCraft.Config.desc.Enable Clipper=启用剪枝钳
+AgriCraft.Config.desc.Disable World Gen=禁用自然生成
+AgriCraft.Config.desc.Greenhouse weight=温室权重
+AgriCraft.Config.desc.Greenhouse limit=温室限制
+AgriCraft.Config.desc.Irrigated greenhouse weight=灌溉温室权重
+AgriCraft.Config.desc.Irrigated greenhouse limit=灌溉温室限制
+AgriCraft.Config.desc.Enable villagers=启用村民
+AgriCraft.Config.desc.Maximum crop tier=最高作物等级
+AgriCraft.Config.desc.Disable seed storage system=禁用种子存储系统
+AgriCraft.Config.desc.Disable seed storage warehouses=禁用种子存储仓库
+AgriCraft.Config.desc.Disable Irrigation=禁用灌溉
+AgriCraft.Config.desc.Sprinkler water usage=洒水器用水
+AgriCraft.Config.desc.Sprinkler growth chance=洒水器催生几率
+AgriCraft.Config.desc.Sprinkler growth interval=催生触发间隔
+AgriCraft.Config.desc.Spawn water after breaking tank=拆水箱漏水
+AgriCraft.Config.desc.Fill tank from flowing water=用流动水加注储罐
+AgriCraft.Config.desc.Channel capacity=通道容量
+AgriCraft.Config.desc.Disable fences=禁用围栏
+AgriCraft.Config.desc.Disable grates=禁用格栅
+AgriCraft.Config.desc.debug=调试
+AgriCraft.Config.desc.Crop rendering setting=作物渲染设置
+AgriCraft.Config.desc.BetaFarming=测试性农场
+
+AgriCraft.Config.desc.condense custom wood blocks in NEI=NEI中缩减显示定制木块
+AgriCraft.Config.desc.Disable particles=禁用粒子
+AgriCraft.Config.desc.Stat Display=属性显示规则
+AgriCraft.Config.desc.Disable sounds=禁用音效
+
+AgriCraft.Config.desc.Resource Crops.tooltip=决定是否启用材料作物
+AgriCraft.Config.desc.Crops per craft.tooltip=每次合成能够取得的种子数量
+AgriCraft.Config.desc.Crop stat cap.tooltip=作物属性数据的最大可达值
+AgriCraft.Config.desc.RegenDefaults.tooltip=设置为true以重新生成默认的修改文件（之后将变回false）
+AgriCraft.Config.desc.Custom crops.tooltip=如果希望创建自己的作物，请设置为true
+AgriCraft.Config.desc.Clear tall grass drops.tooltip=开启以清除从两格草上的掉落物品列表（将在grass drops配置定义的物品之前运行）。
+AgriCraft.Config.desc.Render journal in analyzer.tooltip=为OC的分析器设定是否输出日志内容
+AgriCraft.Config.desc.Register crop products in the ore dict.tooltip=如果GregTech遇到问题，请设置为false，使作物不注册矿辞(请注意，禁用此选项会产生副作用，种子将不再适用于“作物隔离”)
+AgriCraft.Config.desc.Only create water pad while sneaking.tooltip=设置为true，将只在潜行时创建水田
+AgriCraft.Config.desc.Disable Vanilla Farming.tooltip=设置为true将禁用原版种植系统，这意味着您只能在作物架上种植植物
+AgriCraft.Config.desc.Mutation Chance.tooltip=定义突变几率（0.0表示没有突变，只有扩散，1.0表示只有突变没有扩散
+AgriCraft.Config.desc.Single spread stat increase.tooltip=设置为true以允许从单个作物传播的作物增加统计信息
+AgriCraft.Config.desc.Valid parents.tooltip=哪些类型被认为是有效的属性增加来源：1=任意作物。2=突变亲本和相同作物。3=仅相同作物
+AgriCraft.Config.desc.Non parent crops affect stats negatively.tooltip=true使任何未被视为有效亲本的作物都会对统计增益产生负面影响
+AgriCraft.Config.desc.Hardcore stats.tooltip=设置为true可启用硬核模式以增加属性：1父级：3/4递减，1/4无。\n2双亲：减量2/4，无减量1/4，增量1/4。\n3父级：1/4递减，1/2无，1/4递增。\n4父级：1/4递减，1/4无，1/2递增。
+AgriCraft.Config.desc.Crop stat divisor.tooltip=在突变时，作物的属性数据将除以这个数字
+AgriCraft.Config.desc.Enable weeds.tooltip=如果希望禁用杂草，请设置为false
+AgriCraft.Config.desc.Weed Growth Multiplier.tooltip=范围为1-2（含）。
+AgriCraft.Config.desc.Weed Growth Rate.tooltip=杂草生长平均tick时间。
+AgriCraft.Config.desc.Weed Spawn Chance.tooltip=杂草繁殖或蔓延的百分比。95%代表两眼一黑充满绝望。范围0.05-0.95。
+AgriCraft.Config.desc.Weeds can overtake plants.tooltip=如果你不想杂草长得比其他植物都快，设置为false
+AgriCraft.Config.desc.Bonemeal Mutations.tooltip=如果您希望禁用在杂交架上使用骨粉来强制突变，请设置为false
+AgriCraft.Config.desc.Only mature crops drop seeds.tooltip=将此设置为true，以使只有成熟作物才能播种（以鼓励使用园丁铲）
+AgriCraft.Config.desc.Weeds destroy crop sticks.tooltip=将此设置为true，以使作物架被杂草撑爆（以鼓励使用耙子）
+AgriCraft.Config.desc.Growth rate multiplier.tooltip=这是一个全局增长率乘数
+AgriCraft.Config.desc.Raking weeds drops items.tooltip=如果希望禁用杂草掉落物，请设置为false
+AgriCraft.Config.desc.Mod specific drops.tooltip=设置为false以禁用特定于mod的掉落，这将（例如）导致Natura浆果从Harvestcraft浆果作物上掉落
+AgriCraft.Config.desc.Enable Hand Rake.tooltip=设置为false以禁用耙子
+AgriCraft.Config.desc.Enable Magnifying Glass.tooltip=设置为false以禁用放大镜
+AgriCraft.Config.desc.Enable Trowel.tooltip=设置为false以禁用园丁铲
+AgriCraft.Config.desc.Enable Clipper.tooltip=设置为false以禁用剪枝钳
+AgriCraft.Config.desc.Disable World Gen.tooltip=如果设置为true，将禁用自然生成，村庄将不会出现温室
+AgriCraft.Config.desc.Greenhouse weight.tooltip=村庄出现温室的概率
+AgriCraft.Config.desc.Greenhouse limit.tooltip=每个村庄的最大温室数量
+AgriCraft.Config.desc.Irrigated greenhouse weight.tooltip=村庄出现灌溉温室的概率
+AgriCraft.Config.desc.Irrigated greenhouse limit.tooltip=每个村庄灌溉温室的最大数量
+AgriCraft.Config.desc.Enable villagers.tooltip=如果您希望禁止AgriCraft村民在温室中出现，请设置为false
+AgriCraft.Config.desc.Maximum crop tier.tooltip=在温室中繁殖的植物的最大等级
+AgriCraft.Config.desc.Disable seed storage system.tooltip=设置为true以禁用种子存储系统
+AgriCraft.Config.desc.Disable seed storage warehouses.tooltip=设置为true以禁用种子存储仓库
+AgriCraft.Config.desc.Disable Irrigation.tooltip=如果要禁用灌溉系统，请设置为true
+AgriCraft.Config.desc.Sprinkler water usage.tooltip=洒水器的用水量，单位为mB/秒
+AgriCraft.Config.desc.Sprinkler growth chance.tooltip=每隔x秒，喷头范围内的每株植物加速生长的几率
+AgriCraft.Config.desc.Sprinkler growth interval.tooltip=每隔x秒，喷头范围内的每株植物加速判定次数
+AgriCraft.Config.desc.Spawn water after breaking tank.tooltip=设置为false以禁用在断开非空水箱时放置水源
+AgriCraft.Config.desc.Fill tank from flowing water.tooltip=设置为true，则使水箱被上方流动水填充
+AgriCraft.Config.desc.Channel capacity.tooltip=灌溉渠能容纳的水量（单位：mb）
+AgriCraft.Config.desc.Disable fences.tooltip=设置为true以禁用装饰性自定义木栅栏
+AgriCraft.Config.desc.Disable grates.tooltip=设置为true以禁用装饰性定制木格栅
+AgriCraft.Config.desc.debug.tooltip=如果希望启用调试模式，请设置为true
+AgriCraft.Config.desc.Crop rendering setting.tooltip=渲染作物时，默认值（false）是只有在块更新时才会重新渲染植物，这基本上意味着每当作物生长时，会导致包含植物的块重新渲染。\n对于小型农场，这是建议的方法，但是对于大型农场，作物可能几乎每一个tick都会生长，从而导致每一tick都重新渲染方块，可能导致FPS大幅下降。\n如果将此设置为true，则作物生长时将不再进行区块更新，但渲染将有所不同：植物将在每一个tick都进行渲染（作物架本身仍将以默认方式渲染），对于小型农场，这是一种糟糕的方法，对于大型农场也是如此，但与默认方式相比，它可能会得到更好的FPS。\我建议将此设置为false，如果您有FPS问题，请将其设置为true，并亲自查看是否有改进。\此配置设置必须在服务器和客户端上匹配，服务器应该知道它是否会导致块更新，客户端必须知道如何呈现裁剪
+AgriCraft.Config.desc.BetaFarming.tooltip=启用某些测试性内容
+
+AgriCraft.Config.desc.condense custom wood blocks in NEI.tooltip=设置为true，将定制木块的所有条目压缩为NEI中的一个条目
+AgriCraft.Config.desc.Disable particles.tooltip=设置为true以禁用喷水装置的粒子
+AgriCraft.Config.desc.Stat Display.tooltip=这定义了如何显示植物的统计信息。可能的设置有“NUMBER”：只显示一个简单的数字（例如：“6”）、“FRACTION”：数字/最大值（例如：”6/10“）、“CHARACTER-'char'”：等于统计信息的字符数（例如：CHARACTER-A将给出“AAAAAA”）和“KEYWORD-'type'-'KEYWORD'”：关键字，后跟类型，然后是统计信息，type是前面的任何类型（例如：KEYWORD FRACTION Rank将给出“Rank:6/10”）。无效文本将默认为NUMBER
+AgriCraft.Config.desc.Disable sounds.tooltip=设置为true以禁用音效

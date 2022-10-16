@@ -17,8 +17,8 @@ import net.minecraft.item.ItemStack;
 import java.util.ArrayList;
 
 public class BotaniaHelper extends ModHelper {
-    public static ArrayList<BlockModPlant> botaniaCrops = new ArrayList<BlockModPlant>();
-    public static ArrayList<ItemModSeed> botaniaSeeds = new ArrayList<ItemModSeed>();
+    public static ArrayList<BlockModPlant> botaniaCrops = new ArrayList<>();
+    public static ArrayList<ItemModSeed> botaniaSeeds = new ArrayList<>();
 
     @Override
     protected void initPlants() {
@@ -46,7 +46,7 @@ public class BotaniaHelper extends ModHelper {
 
     static boolean useAlternateTextures() {
         try {
-            Class configClass = Class.forName("vazkii.botania.common.core.handler.ConfigHandler");
+            Class<?> configClass = Class.forName("vazkii.botania.common.core.handler.ConfigHandler");
             return (Boolean) configClass.getField("altFlowerTextures").get(null);
         } catch(Exception e) {
             LogHelper.printStackTrace(e);

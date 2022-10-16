@@ -40,7 +40,6 @@ import com.InfinityRaider.AgriCraft.compatibility.natura.NaturaHelper;
 import com.InfinityRaider.AgriCraft.compatibility.opencomputers.OpenComputersHelper;
 import com.InfinityRaider.AgriCraft.compatibility.plantmegapack.PlantMegaPackHelper;
 import com.InfinityRaider.AgriCraft.compatibility.psychedelicraft.PsychedelicraftHelper;
-import com.InfinityRaider.AgriCraft.compatibility.resourcefulcrops.ResourcefulCropsHelper;
 import com.InfinityRaider.AgriCraft.compatibility.tconstruct.TinkersConstructHelper;
 import com.InfinityRaider.AgriCraft.compatibility.thaumcraft.ThaumcraftHelper;
 import com.InfinityRaider.AgriCraft.compatibility.waila.WailaHelper;
@@ -58,10 +57,14 @@ import java.util.HashMap;
 import java.util.List;
 
 public abstract class ModHelper {
-    /** HashMap holding all ModHelpers, with the respective mod id as key */
-    private static final HashMap<String, ModHelper> modHelpers = new HashMap<String, ModHelper>();
-    /** HashMap holding all custom tools, with the correct mod helper as value */
-    private static final HashMap<Item, ModHelper> modTools = new HashMap<Item, ModHelper>();
+    /**
+     * HashMap holding all ModHelpers, with the respective mod id as key
+     */
+    private static final HashMap<String, ModHelper> modHelpers = new HashMap<>();
+    /**
+     * HashMap holding all custom tools, with the correct mod helper as value
+     */
+    private static final HashMap<Item, ModHelper> modTools = new HashMap<>();
 
     /** Method to create only one instance for each mod helper */
     private static ModHelper createInstance(Class<? extends ModHelper> clazz) {
@@ -256,7 +259,6 @@ public abstract class ModHelper {
                 OpenComputersHelper.class,
                 PlantMegaPackHelper.class,
                 PsychedelicraftHelper.class,
-                ResourcefulCropsHelper.class,
                 ThaumcraftHelper.class,
                 TinkersConstructHelper.class,
                 WailaHelper.class,

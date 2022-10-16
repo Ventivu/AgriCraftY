@@ -47,7 +47,7 @@ public class BlockChannelValve extends BlockWaterChannel {
 
     private void updatePowerStatus(World world, int x, int y, int z) {
         TileEntity te = world.getTileEntity(x, y, z);
-        if (te !=null && te instanceof TileEntityValve) {
+        if (te instanceof TileEntityValve) {
             TileEntityValve valve = (TileEntityValve) te;
             valve.updatePowerStatus();
         }

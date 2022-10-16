@@ -1,8 +1,8 @@
 package com.InfinityRaider.AgriCraft.farming.mutation.statcalculator;
 
 import com.InfinityRaider.AgriCraft.api.v1.IMutation;
-import com.InfinityRaider.AgriCraft.api.v2.ISeedStats;
 import com.InfinityRaider.AgriCraft.api.v2.ICrop;
+import com.InfinityRaider.AgriCraft.api.v2.ISeedStats;
 import com.InfinityRaider.AgriCraft.farming.PlantStats;
 import com.InfinityRaider.AgriCraft.farming.mutation.MutationHandler;
 import com.InfinityRaider.AgriCraft.handler.ConfigurationHandler;
@@ -49,13 +49,13 @@ public abstract  class StatCalculatorBase extends StatCalculator {
 
     //gets an array of all the possible parents from the array containing all the neighbouring crops
     protected ICrop[] filterParents(List<? extends ICrop> input) {
-        ArrayList<ICrop> list = new ArrayList<ICrop>();
+        ArrayList<ICrop> list = new ArrayList<>();
         for(ICrop crop:input) {
             if (crop != null && crop.isMature()) {
                 list.add(crop);
             }
         }
-        return list.toArray(new ICrop[list.size()]);
+        return list.toArray(new ICrop[0]);
     }
 
     protected boolean canInheritStats(Item child, int childMeta, Item seed, int seedMeta) {

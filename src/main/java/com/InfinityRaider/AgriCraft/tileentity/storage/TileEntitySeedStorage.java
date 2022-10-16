@@ -26,10 +26,14 @@ import java.util.Map;
 public class TileEntitySeedStorage extends TileEntityCustomWood implements ISeedStorageControllable, IDebuggable, ISidedInventory {
     private Item lockedSeed;
     private int lockedSeedMeta;
-    /** Slots stored in a HashMap to use with Container and with Controller */
-    private Map<Integer, SeedStorageSlot> slots = new HashMap<Integer, SeedStorageSlot>();
-    /** Slots also stored in an ArrayList to use with ISidedInventory */
-    private ArrayList<SeedStorageSlot> slotsList = new ArrayList<SeedStorageSlot>();
+    /**
+     * Slots stored in a HashMap to use with Container and with Controller
+     */
+    private Map<Integer, SeedStorageSlot> slots = new HashMap<>();
+    /**
+     * Slots also stored in an ArrayList to use with ISidedInventory
+     */
+    private ArrayList<SeedStorageSlot> slotsList = new ArrayList<>();
     private ISeedStorageController controller;
 
     public TileEntitySeedStorage() {
@@ -74,8 +78,8 @@ public class TileEntitySeedStorage extends TileEntityCustomWood implements ISeed
     @Override
     public void readFromNBT(NBTTagCompound tag) {
         super.readFromNBT(tag);
-        this.slots = new HashMap<Integer, SeedStorageSlot>();
-        this.slotsList = new ArrayList<SeedStorageSlot>();
+        this.slots = new HashMap<>();
+        this.slotsList = new ArrayList<>();
         if (tag.hasKey(Names.NBT.seed)) {
             //read the locked seed
             ItemStack seedStack = ItemStack.loadItemStackFromNBT(tag.getCompoundTag(Names.NBT.seed));
@@ -268,7 +272,7 @@ public class TileEntitySeedStorage extends TileEntityCustomWood implements ISeed
 
     @Override
     public ArrayList<ItemStack> getInventory() {
-        ArrayList<ItemStack> stacks = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> stacks = new ArrayList<>();
         if(this.hasLockedSeed()) {
             for(Map.Entry<Integer, SeedStorageSlot> entries:slots.entrySet()) {
                 if(entries!=null && entries.getValue()!=null) {
@@ -281,7 +285,7 @@ public class TileEntitySeedStorage extends TileEntityCustomWood implements ISeed
 
     public List<SeedStorageSlot> getSlots() {
         if(slotsList == null) {
-            slotsList = new ArrayList<SeedStorageSlot>();
+            slotsList = new ArrayList<>();
         }
         return slotsList;
     }

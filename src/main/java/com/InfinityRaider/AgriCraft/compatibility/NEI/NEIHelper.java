@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class NEIHelper extends ModHelper {
-    private static HashMap<String, Boolean> handlerStatuses = new HashMap<String, Boolean>();
+    private static HashMap<String, Boolean> handlerStatuses = new HashMap<>();
 
     @Override
     protected String modId() {

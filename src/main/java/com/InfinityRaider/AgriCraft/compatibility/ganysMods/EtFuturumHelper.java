@@ -13,7 +13,7 @@ public class EtFuturumHelper extends ModHelper {
     protected void initPlants() {
         Item seed = (Item) Item.itemRegistry.getObject("etfuturum:beetroot_seeds");
         Item fruit = (Item) Item.itemRegistry.getObject("etfuturum:beetroot");
-        if(seed != null && seed instanceof ItemSeeds && fruit != null) {
+        if (seed instanceof ItemSeeds && fruit != null) {
             OreDictionary.registerOre("seedBeetRoot", seed);
             OreDictionary.registerOre("cropBeetRoot", fruit);
             CropPlantGanysSurface plant = new CropPlantGanysSurface((ItemSeeds) seed, "etFuturum_beetRoot");

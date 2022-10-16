@@ -71,7 +71,7 @@ public class Growing {
             private final List<BlockWithMeta> soils;
 
             public AddAction(ItemStack[] soils) {
-                this.soils = new ArrayList<BlockWithMeta>();
+                this.soils = new ArrayList<>();
                 for(ItemStack stack:soils) {
                     this.soils.add(new BlockWithMeta(((ItemBlock) stack.getItem()).field_150939_a, stack.getItemDamage()));
                 }
@@ -114,7 +114,7 @@ public class Growing {
             private final List<BlockWithMeta> soils;
 
             public RemoveAction(ItemStack[] soils) {
-                this.soils = new ArrayList<BlockWithMeta>();
+                this.soils = new ArrayList<>();
                 for(ItemStack stack:soils) {
                     this.soils.add(new BlockWithMeta(((ItemBlock) stack.getItem()).field_150939_a, stack.getItemDamage()));
                 }
@@ -342,7 +342,7 @@ public class Growing {
                 MineTweakerAPI.logError("Type needs to be either 1 (below) or 2 (nearby)");
                 return;
             }
-            if (seed == null || !(CropPlantHandler.isValidSeed(seed))) {
+            if (!(CropPlantHandler.isValidSeed(seed))) {
                 MineTweakerAPI.logError("Seeds has to be non-null and should be recognized by AgriCraft as a seed.");
                 return;
             }
@@ -360,7 +360,7 @@ public class Growing {
         @ZenMethod
         public static void clear(IItemStack seed) {
             ItemStack seedIS = MineTweakerMC.getItemStack(seed);
-            if (seedIS == null || !(CropPlantHandler.isValidSeed(seedIS))) {
+            if (!(CropPlantHandler.isValidSeed(seedIS))) {
                 MineTweakerAPI.logError("Seeds has to be non-null and should be recognized by AgriCraft as a seed.");
                 return;
             }

@@ -91,7 +91,7 @@ public class SeedMutation {
     private static class RemoveAction implements IUndoableAction {
 
         private final ItemStack result;
-        private List<IMutation> removedMutations = new ArrayList<IMutation>();
+        private List<IMutation> removedMutations = new ArrayList<>();
 
         public RemoveAction(ItemStack result) {
             this.result = result;

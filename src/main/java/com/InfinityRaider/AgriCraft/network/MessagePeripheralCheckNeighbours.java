@@ -43,7 +43,7 @@ public class MessagePeripheralCheckNeighbours extends MessageAgriCraft {
             World world = AgriCraft.proxy.getClientWorld();
             if(world != null) {
                 TileEntity te = world.getTileEntity(message.x, message.y, message.z);
-                if(te != null && te instanceof TileEntityPeripheral) {
+                if (te instanceof TileEntityPeripheral) {
                     ((TileEntityPeripheral) te).checkSides();
                 }
             }

@@ -1,9 +1,9 @@
 package com.InfinityRaider.AgriCraft.items;
 
 import com.InfinityRaider.AgriCraft.api.v2.ISeedStats;
-import com.InfinityRaider.AgriCraft.farming.PlantStats;
 import com.InfinityRaider.AgriCraft.blocks.BlockCrop;
 import com.InfinityRaider.AgriCraft.farming.CropPlantHandler;
+import com.InfinityRaider.AgriCraft.farming.PlantStats;
 import com.InfinityRaider.AgriCraft.farming.cropplant.CropPlant;
 import com.InfinityRaider.AgriCraft.reference.Names;
 import com.InfinityRaider.AgriCraft.renderers.items.RenderItemBase;
@@ -54,7 +54,7 @@ public class ItemClipping extends ItemAgricraft {
             return false;
         }
         TileEntity te = world.getTileEntity(x, y, z);
-        if(te == null || !(te instanceof TileEntityCrop)) {
+        if (!(te instanceof TileEntityCrop)) {
             return true;
         }
         TileEntityCrop crop = (TileEntityCrop) te;

@@ -52,7 +52,7 @@ public class CropPlantGrowthCraftRice extends CropPlant {
 
     @Override
     public ArrayList<ItemStack> getAllFruits() {
-        ArrayList<ItemStack> fruits = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> fruits = new ArrayList<>();
         fruits.add(new ItemStack(rice));
         return fruits;
     }
@@ -65,7 +65,7 @@ public class CropPlantGrowthCraftRice extends CropPlant {
     @Override
     public ArrayList<ItemStack> getFruitsOnHarvest(int gain, Random rand) {
         int amount = (int) (Math.ceil((gain + 0.00) / 3));
-        ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> list = new ArrayList<>();
         list.add(new ItemStack(rice, amount));
         return list;
     }
@@ -92,7 +92,7 @@ public class CropPlantGrowthCraftRice extends CropPlant {
 
     @Override
     public IIcon getPlantIcon(int growthStage) {
-        return plant.getIcon(0, growthStage>=6?6:growthStage);
+        return plant.getIcon(0, Math.min(growthStage, 6));
     }
 
     @Override

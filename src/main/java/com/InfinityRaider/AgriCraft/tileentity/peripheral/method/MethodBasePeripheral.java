@@ -15,7 +15,7 @@ public abstract class MethodBasePeripheral extends MethodBase {
     }
 
     @Override
-    protected Object[] onMethodCalled(TileEntityCrop crop) throws MethodException {
+    protected Object[] onMethodCalled(TileEntityCrop crop) {
         return new Object[0];
     }
 
@@ -31,6 +31,6 @@ public abstract class MethodBasePeripheral extends MethodBase {
 
     @Override
     protected ArrayList<MethodParameter> getParameters() {
-        return new ArrayList<MethodParameter>();
+        return new ArrayList<>();
     }
 }

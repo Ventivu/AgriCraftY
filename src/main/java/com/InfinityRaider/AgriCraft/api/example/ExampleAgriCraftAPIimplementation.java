@@ -2,8 +2,8 @@ package com.InfinityRaider.AgriCraft.api.example;
 
 import com.InfinityRaider.AgriCraft.api.API;
 import com.InfinityRaider.AgriCraft.api.APIBase;
-import com.InfinityRaider.AgriCraft.api.v2.ISeedStats;
 import com.InfinityRaider.AgriCraft.api.v2.APIv2;
+import com.InfinityRaider.AgriCraft.api.v2.ISeedStats;
 import net.minecraft.world.World;
 
 public class ExampleAgriCraftAPIimplementation extends ExampleAgriCraftAPIwrapper {
@@ -16,7 +16,7 @@ public class ExampleAgriCraftAPIimplementation extends ExampleAgriCraftAPIwrappe
     protected ExampleAgriCraftAPIimplementation() {
         super();
         APIBase apiObj = API.getAPI(1);
-        if(apiObj != null && (apiObj instanceof APIv2)) {
+        if ((apiObj instanceof APIv2)) {
             api = (APIv2) apiObj;
             ok = api.getStatus().isOK();
         } else {

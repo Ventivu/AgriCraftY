@@ -26,7 +26,7 @@ public class CropPlantWeeeFlower extends CropPlantGeneric {
 
     @Override
     public ArrayList<ItemStack> getAllFruits() {
-        ArrayList<ItemStack> fruits = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> fruits = new ArrayList<>();
         fruits.add(new ItemStack(flower, 1, meta));
         return fruits;
     }

@@ -23,23 +23,19 @@ public class BlockModPlantBotania extends BlockModPlant {
         if(BotaniaHelper.useAlternateTextures()) {
             switch (meta) {
                 case 0:
-                    return this.alternateIcons[0];
                 case 1:
                     return this.alternateIcons[0];
                 case 2:
-                    return this.alternateIcons[1];
+                case 4:
                 case 3:
                     return this.alternateIcons[1];
-                case 4:
-                    return this.alternateIcons[1];
                 case 5:
-                    return this.alternateIcons[2];
                 case 6:
                     return this.alternateIcons[2];
                 case 7:
                     return this.alternateIcons[3];
             }
-            return this.alternateIcons[(int) Math.floor(meta / 5)];
+            return this.alternateIcons[(int) Math.floor(meta / 5f)];
         } else {
             return super.getIcon(side, meta);
         }
